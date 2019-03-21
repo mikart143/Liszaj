@@ -1,0 +1,120 @@
+\hypertarget{class_tile_settings}{}\section{Dokumentacja klasy Tile\+Settings}
+\label{class_tile_settings}\index{Tile\+Settings@{Tile\+Settings}}
+
+
+{\ttfamily \#include $<$Tile\+Settings.\+h$>$}
+
+\subsection*{Statyczne metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_tile_settings}{Tile\+Settings}} $\ast$ \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{get\+Instance}} ()
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty publiczne}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Vector2u \mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tile\+Size}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_quad}{Quad}} $>$ \mbox{\hyperlink{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}{tile\+Quads}}
+\item 
+sf\+::\+Vector2u \mbox{\hyperlink{class_tile_settings_a2b24689813e0082b59df113b754778c2}{main\+Window\+Size}}
+\end{DoxyCompactItemize}
+\subsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tile_settings_a5903073619b7b4bf85a2dc3548db84fe}{Tile\+Settings}} ()
+\item 
+\mbox{\hyperlink{class_tile_settings_a4e8a5a736c71cec9e60a49d5cafca150}{$\sim$\+Tile\+Settings}} ()
+\end{DoxyCompactItemize}
+\subsection*{Statyczne atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_tile_settings}{Tile\+Settings}} $\ast$ \mbox{\hyperlink{class_tile_settings_a4e06ef1c8909d1e22f82976b9b4162f0}{s\+\_\+tile\+\_\+settings}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Singleton odpowiadający za ustawienia siatki komórek. Przechowuje najważniejsze zmienne. 
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\mbox{\Hypertarget{class_tile_settings_a5903073619b7b4bf85a2dc3548db84fe}\label{class_tile_settings_a5903073619b7b4bf85a2dc3548db84fe}} 
+\index{Tile\+Settings@{Tile\+Settings}!Tile\+Settings@{Tile\+Settings}}
+\index{Tile\+Settings@{Tile\+Settings}!Tile\+Settings@{Tile\+Settings}}
+\subsubsection{\texorpdfstring{Tile\+Settings()}{TileSettings()}}
+{\footnotesize\ttfamily Tile\+Settings\+::\+Tile\+Settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Domyślny konstruktor. 
+\begin{DoxyCode}
+13 \{
+14     \mbox{\hyperlink{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}{tileQuads}}.clear();
+15     \mbox{\hyperlink{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}{tileQuads}}.shrink\_to\_fit();
+16 
+17     \mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}} = sf::Vector2u(0, 0);
+18 
+19     \mbox{\hyperlink{class_tile_settings_a2b24689813e0082b59df113b754778c2}{mainWindowSize}} = sf::Vector2u(0, 0);
+20 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_tile_settings_a4e8a5a736c71cec9e60a49d5cafca150}\label{class_tile_settings_a4e8a5a736c71cec9e60a49d5cafca150}} 
+\index{Tile\+Settings@{Tile\+Settings}!````~Tile\+Settings@{$\sim$\+Tile\+Settings}}
+\index{````~Tile\+Settings@{$\sim$\+Tile\+Settings}!Tile\+Settings@{Tile\+Settings}}
+\subsubsection{\texorpdfstring{$\sim$\+Tile\+Settings()}{~TileSettings()}}
+{\footnotesize\ttfamily Tile\+Settings\+::$\sim$\+Tile\+Settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Destruktor. 
+\begin{DoxyCode}
+24 \{
+25     \textcolor{keyword}{delete} \mbox{\hyperlink{class_tile_settings_a4e06ef1c8909d1e22f82976b9b4162f0}{s\_tile\_settings}};
+26 \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}\label{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}} 
+\index{Tile\+Settings@{Tile\+Settings}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Tile\+Settings@{Tile\+Settings}}
+\subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tile_settings}{Tile\+Settings}} $\ast$ Tile\+Settings\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Metoda zwracająca instancje klasy. \begin{DoxyReturn}{Zwraca}
+Tile\+Settings$\ast$ 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+6 \{
+7     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_tile_settings_a4e06ef1c8909d1e22f82976b9b4162f0}{s\_tile\_settings}})
+8         \mbox{\hyperlink{class_tile_settings_a4e06ef1c8909d1e22f82976b9b4162f0}{s\_tile\_settings}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_tile_settings_a5903073619b7b4bf85a2dc3548db84fe}{TileSettings}}();
+9     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_tile_settings_a4e06ef1c8909d1e22f82976b9b4162f0}{s\_tile\_settings}};
+10 \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\mbox{\Hypertarget{class_tile_settings_a2b24689813e0082b59df113b754778c2}\label{class_tile_settings_a2b24689813e0082b59df113b754778c2}} 
+\index{Tile\+Settings@{Tile\+Settings}!main\+Window\+Size@{main\+Window\+Size}}
+\index{main\+Window\+Size@{main\+Window\+Size}!Tile\+Settings@{Tile\+Settings}}
+\subsubsection{\texorpdfstring{main\+Window\+Size}{mainWindowSize}}
+{\footnotesize\ttfamily sf\+::\+Vector2u Tile\+Settings\+::main\+Window\+Size}
+
+Zmienna przechowująca rozmiar głównego okna. \mbox{\Hypertarget{class_tile_settings_a4e06ef1c8909d1e22f82976b9b4162f0}\label{class_tile_settings_a4e06ef1c8909d1e22f82976b9b4162f0}} 
+\index{Tile\+Settings@{Tile\+Settings}!s\+\_\+tile\+\_\+settings@{s\+\_\+tile\+\_\+settings}}
+\index{s\+\_\+tile\+\_\+settings@{s\+\_\+tile\+\_\+settings}!Tile\+Settings@{Tile\+Settings}}
+\subsubsection{\texorpdfstring{s\+\_\+tile\+\_\+settings}{s\_tile\_settings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tile_settings}{Tile\+Settings}} $\ast$ Tile\+Settings\+::s\+\_\+tile\+\_\+settings = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Jedyna instancja klasy \mbox{\hyperlink{class_tile_settings}{Tile\+Settings}}, która jest udostępniana przez static Tile\+Settings$\ast$ \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{Tile\+Settings\+::get\+Instance()}} \mbox{\Hypertarget{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}\label{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}} 
+\index{Tile\+Settings@{Tile\+Settings}!tile\+Quads@{tile\+Quads}}
+\index{tile\+Quads@{tile\+Quads}!Tile\+Settings@{Tile\+Settings}}
+\subsubsection{\texorpdfstring{tile\+Quads}{tileQuads}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_quad}{Quad}}$>$ Tile\+Settings\+::tile\+Quads}
+
+Wektor przechowujący wszystkie komórki. \mbox{\Hypertarget{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}\label{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}} 
+\index{Tile\+Settings@{Tile\+Settings}!tile\+Size@{tile\+Size}}
+\index{tile\+Size@{tile\+Size}!Tile\+Settings@{Tile\+Settings}}
+\subsubsection{\texorpdfstring{tile\+Size}{tileSize}}
+{\footnotesize\ttfamily sf\+::\+Vector2u Tile\+Settings\+::tile\+Size}
+
+Zmienna opisująca szerokość i długość siatki. 
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_tile_settings_8h}{Tile\+Settings.\+h}}\item 
+\mbox{\hyperlink{_tile_settings_8cpp}{Tile\+Settings.\+cpp}}\end{DoxyCompactItemize}

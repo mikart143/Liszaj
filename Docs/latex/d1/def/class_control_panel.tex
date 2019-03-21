@@ -1,0 +1,153 @@
+\hypertarget{class_control_panel}{}\section{Dokumentacja klasy Control\+Panel}
+\label{class_control_panel}\index{Control\+Panel@{Control\+Panel}}
+
+
+{\ttfamily \#include $<$Control\+Panel.\+h$>$}
+
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_control_panel_ae9a88e3d1edf51b1b3dad989d2ce7140}{Control\+Panel}} ()
+\item 
+\mbox{\hyperlink{class_control_panel_aaa18bb1c97830df080f39d8abb2d1bd5}{$\sim$\+Control\+Panel}} ()
+\item 
+void \mbox{\hyperlink{class_control_panel_a0dc73223e82ee588c1ac61d4f9c3082e}{draw}} ()
+\item 
+void \mbox{\hyperlink{class_control_panel_a76244d427bb5a852b55c1d0e79e363de}{set\+Tile}} (\mbox{\hyperlink{class_tile}{Tile}} $\ast$tile)
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty publiczne}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_control_panel_afef4fad7217719a2dc9df005a40efda0}{window\+Position}}
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_control_panel_ac270884ed654aa0c068d551b4653e39c}{window\+Size}}
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_options}{Options}} \mbox{\hyperlink{class_control_panel_a662113a86b5fa2be4790dd5b403e3f70}{m\+\_\+options}}
+\item 
+\mbox{\hyperlink{class_statistics}{Statistics}} \mbox{\hyperlink{class_control_panel_a330f6c6c7326c3b76b13e4423108fc88}{m\+\_\+statistics}}
+\item 
+\mbox{\hyperlink{class_tile}{Tile}} $\ast$ \mbox{\hyperlink{class_control_panel_a9515f025047a35dba24b6ac94c7a55bd}{m\+\_\+tile}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa odpowiadająca za rysowania głównego okna Panelu Sterowania. 
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\mbox{\Hypertarget{class_control_panel_ae9a88e3d1edf51b1b3dad989d2ce7140}\label{class_control_panel_ae9a88e3d1edf51b1b3dad989d2ce7140}} 
+\index{Control\+Panel@{Control\+Panel}!Control\+Panel@{Control\+Panel}}
+\index{Control\+Panel@{Control\+Panel}!Control\+Panel@{Control\+Panel}}
+\subsubsection{\texorpdfstring{Control\+Panel()}{ControlPanel()}}
+{\footnotesize\ttfamily Control\+Panel\+::\+Control\+Panel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Domyślny konstruktor. 
+\begin{DoxyCode}
+6 \{
+7     \mbox{\hyperlink{class_control_panel_afef4fad7217719a2dc9df005a40efda0}{windowPosition}} = sf::Vector2f(0, 0);
+8     \mbox{\hyperlink{class_control_panel_ac270884ed654aa0c068d551b4653e39c}{windowSize}} = sf::Vector2f(0, 0);
+9     \mbox{\hyperlink{class_control_panel_a662113a86b5fa2be4790dd5b403e3f70}{m\_options}}.\mbox{\hyperlink{class_options_a7304b6cb34a2f1bbc5aac543778f1de9}{setTile}}(\mbox{\hyperlink{class_control_panel_a9515f025047a35dba24b6ac94c7a55bd}{m\_tile}});
+10 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_control_panel_aaa18bb1c97830df080f39d8abb2d1bd5}\label{class_control_panel_aaa18bb1c97830df080f39d8abb2d1bd5}} 
+\index{Control\+Panel@{Control\+Panel}!````~Control\+Panel@{$\sim$\+Control\+Panel}}
+\index{````~Control\+Panel@{$\sim$\+Control\+Panel}!Control\+Panel@{Control\+Panel}}
+\subsubsection{\texorpdfstring{$\sim$\+Control\+Panel()}{~ControlPanel()}}
+{\footnotesize\ttfamily Control\+Panel\+::$\sim$\+Control\+Panel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destruktor 
+\begin{DoxyCode}
+14 \{
+15 \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{class_control_panel_a0dc73223e82ee588c1ac61d4f9c3082e}\label{class_control_panel_a0dc73223e82ee588c1ac61d4f9c3082e}} 
+\index{Control\+Panel@{Control\+Panel}!draw@{draw}}
+\index{draw@{draw}!Control\+Panel@{Control\+Panel}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Control\+Panel\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Metoda odpowiadajaća za rysowanie (wyświetlanie) okna Panelu Sterowania. 
+\begin{DoxyCode}
+18 \{
+19     ImGui::Begin(\textcolor{stringliteral}{"Panel Sterowania"});
+20 
+21     \textcolor{keywordflow}{if}(!ImGui::CollapsingHeader(\textcolor{stringliteral}{"Ustawienia"}))
+22     \{
+23         \mbox{\hyperlink{class_control_panel_a662113a86b5fa2be4790dd5b403e3f70}{m\_options}}.\mbox{\hyperlink{class_options_aba27e24489aab55dc9d1d3c436709a73}{draw}}();
+24     \}
+25     \textcolor{keywordflow}{if}(ImGui::CollapsingHeader(\textcolor{stringliteral}{"Statystyki"}))
+26     \{
+27         \mbox{\hyperlink{class_control_panel_a330f6c6c7326c3b76b13e4423108fc88}{m\_statistics}}.\mbox{\hyperlink{class_statistics_a5345e618eb4d5b8448a86d519d5ee33d}{draw}}();
+28     \}
+29 
+30 
+31     \mbox{\hyperlink{class_control_panel_afef4fad7217719a2dc9df005a40efda0}{windowPosition}} = sf::Vector2f(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y);
+32     \mbox{\hyperlink{class_control_panel_ac270884ed654aa0c068d551b4653e39c}{windowSize}} = sf::Vector2f(ImGui::GetWindowSize().x, ImGui::GetWindowSize().y);
+33 
+34     ImGui::End();
+35 
+36 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_control_panel_a76244d427bb5a852b55c1d0e79e363de}\label{class_control_panel_a76244d427bb5a852b55c1d0e79e363de}} 
+\index{Control\+Panel@{Control\+Panel}!set\+Tile@{set\+Tile}}
+\index{set\+Tile@{set\+Tile}!Control\+Panel@{Control\+Panel}}
+\subsubsection{\texorpdfstring{set\+Tile()}{setTile()}}
+{\footnotesize\ttfamily void Control\+Panel\+::set\+Tile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tile}{Tile}} $\ast$}]{tile }\end{DoxyParamCaption})}
+
+Metoda odpowiadająca za ustawienie zmiennej prywatnej m\+\_\+tile.
+
+
+\begin{DoxyParams}{Parametry}
+{\em tile} & Przekazuje wskaźnik do siatki (\mbox{\hyperlink{class_tile}{Tile}}), do której będą odnosiły się opcje w panelu. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+39 \{
+40     \mbox{\hyperlink{class_control_panel_a9515f025047a35dba24b6ac94c7a55bd}{m\_tile}} = tile;
+41 \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\mbox{\Hypertarget{class_control_panel_a662113a86b5fa2be4790dd5b403e3f70}\label{class_control_panel_a662113a86b5fa2be4790dd5b403e3f70}} 
+\index{Control\+Panel@{Control\+Panel}!m\+\_\+options@{m\+\_\+options}}
+\index{m\+\_\+options@{m\+\_\+options}!Control\+Panel@{Control\+Panel}}
+\subsubsection{\texorpdfstring{m\+\_\+options}{m\_options}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_options}{Options}} Control\+Panel\+::m\+\_\+options\hspace{0.3cm}{\ttfamily [private]}}
+
+Zmienna, która odpowiada za zakładkę Opcje w Panelu Sterowania i zawiera wszystkie kontroli wchodzące w skłąd tej sekcji. \mbox{\Hypertarget{class_control_panel_a330f6c6c7326c3b76b13e4423108fc88}\label{class_control_panel_a330f6c6c7326c3b76b13e4423108fc88}} 
+\index{Control\+Panel@{Control\+Panel}!m\+\_\+statistics@{m\+\_\+statistics}}
+\index{m\+\_\+statistics@{m\+\_\+statistics}!Control\+Panel@{Control\+Panel}}
+\subsubsection{\texorpdfstring{m\+\_\+statistics}{m\_statistics}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_statistics}{Statistics}} Control\+Panel\+::m\+\_\+statistics\hspace{0.3cm}{\ttfamily [private]}}
+
+Zmienna, która odpowiada za zakładkę Statystyki w Panelu sterowania i zawiera wszystkie kontroli wchodzące w skłąd tej sekcji. \mbox{\Hypertarget{class_control_panel_a9515f025047a35dba24b6ac94c7a55bd}\label{class_control_panel_a9515f025047a35dba24b6ac94c7a55bd}} 
+\index{Control\+Panel@{Control\+Panel}!m\+\_\+tile@{m\+\_\+tile}}
+\index{m\+\_\+tile@{m\+\_\+tile}!Control\+Panel@{Control\+Panel}}
+\subsubsection{\texorpdfstring{m\+\_\+tile}{m\_tile}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tile}{Tile}}$\ast$ Control\+Panel\+::m\+\_\+tile\hspace{0.3cm}{\ttfamily [private]}}
+
+Zmienna do której przypisywany jest wskaźnik przez metodę\+: void \mbox{\hyperlink{class_control_panel_a76244d427bb5a852b55c1d0e79e363de}{Control\+Panel\+::set\+Tile(\+Tile $\ast$tile)}} \mbox{\Hypertarget{class_control_panel_afef4fad7217719a2dc9df005a40efda0}\label{class_control_panel_afef4fad7217719a2dc9df005a40efda0}} 
+\index{Control\+Panel@{Control\+Panel}!window\+Position@{window\+Position}}
+\index{window\+Position@{window\+Position}!Control\+Panel@{Control\+Panel}}
+\subsubsection{\texorpdfstring{window\+Position}{windowPosition}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Control\+Panel\+::window\+Position}
+
+Zmienna przechowująca pozycję okna Panelu Sterowania. \mbox{\Hypertarget{class_control_panel_ac270884ed654aa0c068d551b4653e39c}\label{class_control_panel_ac270884ed654aa0c068d551b4653e39c}} 
+\index{Control\+Panel@{Control\+Panel}!window\+Size@{window\+Size}}
+\index{window\+Size@{window\+Size}!Control\+Panel@{Control\+Panel}}
+\subsubsection{\texorpdfstring{window\+Size}{windowSize}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Control\+Panel\+::window\+Size}
+
+Zmienna przechowująca rozmiar okna Panelu Sterowania. 
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_control_panel_8h}{Control\+Panel.\+h}}\item 
+\mbox{\hyperlink{_control_panel_8cpp}{Control\+Panel.\+cpp}}\end{DoxyCompactItemize}

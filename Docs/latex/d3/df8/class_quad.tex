@@ -1,0 +1,366 @@
+\hypertarget{class_quad}{}\section{Dokumentacja klasy Quad}
+\label{class_quad}\index{Quad@{Quad}}
+
+
+{\ttfamily \#include $<$Quad.\+h$>$}
+
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_quad_ae446d188d645cc5c512336f25d1a697a}{Quad}} ()
+\item 
+\mbox{\hyperlink{class_quad_a5db77c0481b30c0b7c1014cc535284ad}{$\sim$\+Quad}} ()
+\item 
+void \mbox{\hyperlink{class_quad_af92ade1062347d22d3715696f5f2449c}{set\+Infected}} ()
+\item 
+void \mbox{\hyperlink{class_quad_aed458aa7db6bf84c6a3060339c6a27c0}{update\+State}} ()
+\item 
+void \mbox{\hyperlink{class_quad_a1f3970e8f264eabe131e20af7017f940}{set\+Position}} (int x, int y)
+\item 
+void \mbox{\hyperlink{class_quad_a67483d3d113d177c0820f586a923e65e}{update\+Nearby\+Elements}} ()
+\item 
+sf\+::\+Sprite $\ast$ \mbox{\hyperlink{class_quad_a35f20e65dd33bb5864f73575b04896e7}{get\+Sprite}} ()
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty publiczne}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_quad_a4994c09af588aeb08c482ea46494a08c}{healthy}}
+\item 
+bool \mbox{\hyperlink{class_quad_ae439ca631a9f51147b9d84a9c9df49c4}{infected}}
+\item 
+bool \mbox{\hyperlink{class_quad_ae2197ad46a2d7e409b2ca9e7ac25a80c}{resistant}}
+\item 
+bool \mbox{\hyperlink{class_quad_a033c364211aab4e91aeb1609d4d890fe}{point\+Of\+Infection}}
+\item 
+sf\+::\+Time \mbox{\hyperlink{class_quad_a30c2f4952b357ab59f018b766d2c9da2}{hit\+Time}}
+\item 
+sf\+::\+Vector2u \mbox{\hyperlink{class_quad_af0820dc173ffac240bcfe0a19dc2fe8a}{position}}
+\item 
+\mbox{\hyperlink{classthor_1_1_color_animation_modified}{thor\+::\+Color\+Animation\+Modified}} \mbox{\hyperlink{class_quad_ace5b5f07a650f624aeb07806bc34d3f6}{p\+\_\+animation}}
+\end{DoxyCompactItemize}
+\subsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_quad_a3b6d55ec11182c7151bb3894ab397204}{set\+Healthy}} ()
+\item 
+void \mbox{\hyperlink{class_quad_a92ac7d4d3d789cce9339eadc77fd8185}{set\+Resistance}} ()
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_quad_a83667bb824c1d6eca6c9c8b6e6d07d06}{sprite}}
+\item 
+bool \mbox{\hyperlink{class_quad_a6ccb745d5e70603957948d681b60e0f8}{m\+\_\+nearby\+Infected}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_quad}{Quad}} $\ast$ $>$ \mbox{\hyperlink{class_quad_ad66d1a97fdbecb53ea43af7361b4f124}{m\+\_\+nearby\+Quads}}
+\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_quad_a6f4ba6ebde2332f1c4b34661089550e5}{m\+\_\+sprite}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa która reprezentuje komórkę i zarządza jej stanami. 
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\mbox{\Hypertarget{class_quad_ae446d188d645cc5c512336f25d1a697a}\label{class_quad_ae446d188d645cc5c512336f25d1a697a}} 
+\index{Quad@{Quad}!Quad@{Quad}}
+\index{Quad@{Quad}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{Quad()}{Quad()}}
+{\footnotesize\ttfamily Quad\+::\+Quad (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Domyślny konstruktor. 
+\begin{DoxyCode}
+5           :\mbox{\hyperlink{class_quad_ace5b5f07a650f624aeb07806bc34d3f6}{p\_animation}}(&\mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->infectionGradient)
+6 \{
+7     \mbox{\hyperlink{class_quad_a4994c09af588aeb08c482ea46494a08c}{healthy}} = \textcolor{keyword}{true};
+8     \mbox{\hyperlink{class_quad_ae439ca631a9f51147b9d84a9c9df49c4}{infected}} = \textcolor{keyword}{false};
+9     \mbox{\hyperlink{class_quad_ae2197ad46a2d7e409b2ca9e7ac25a80c}{resistant}} = \textcolor{keyword}{false};
+10     \mbox{\hyperlink{class_quad_a6ccb745d5e70603957948d681b60e0f8}{m\_nearbyInfected}} = \textcolor{keyword}{false};
+11     \mbox{\hyperlink{class_quad_a033c364211aab4e91aeb1609d4d890fe}{pointOfInfection}} = \textcolor{keyword}{false};
+12 
+13     \mbox{\hyperlink{class_quad_a83667bb824c1d6eca6c9c8b6e6d07d06}{sprite}}.setTexture(\mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->transparentTexture);
+14 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_quad_a5db77c0481b30c0b7c1014cc535284ad}\label{class_quad_a5db77c0481b30c0b7c1014cc535284ad}} 
+\index{Quad@{Quad}!````~Quad@{$\sim$\+Quad}}
+\index{````~Quad@{$\sim$\+Quad}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{$\sim$\+Quad()}{~Quad()}}
+{\footnotesize\ttfamily Quad\+::$\sim$\+Quad (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destruktor 
+\begin{DoxyCode}
+18 \{
+19 
+20 \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{class_quad_a35f20e65dd33bb5864f73575b04896e7}\label{class_quad_a35f20e65dd33bb5864f73575b04896e7}} 
+\index{Quad@{Quad}!get\+Sprite@{get\+Sprite}}
+\index{get\+Sprite@{get\+Sprite}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{get\+Sprite()}{getSprite()}}
+{\footnotesize\ttfamily sf\+::\+Sprite $\ast$ Quad\+::get\+Sprite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Metoda zwracająca wskaźnik do sprite\textquotesingle{}a komórki. \begin{DoxyReturn}{Zwraca}
+sf\+::\+Sprite$\ast$ 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+126 \{
+127     \textcolor{keywordflow}{return} &\mbox{\hyperlink{class_quad_a83667bb824c1d6eca6c9c8b6e6d07d06}{sprite}};
+128 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_quad_a3b6d55ec11182c7151bb3894ab397204}\label{class_quad_a3b6d55ec11182c7151bb3894ab397204}} 
+\index{Quad@{Quad}!set\+Healthy@{set\+Healthy}}
+\index{set\+Healthy@{set\+Healthy}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{set\+Healthy()}{setHealthy()}}
+{\footnotesize\ttfamily void Quad\+::set\+Healthy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Metoda która ustawia komórkę w zdrowy stan. 
+\begin{DoxyCode}
+23 \{
+24     \mbox{\hyperlink{class_quad_a4994c09af588aeb08c482ea46494a08c}{healthy}} = \textcolor{keyword}{true};
+25     \mbox{\hyperlink{class_quad_ae439ca631a9f51147b9d84a9c9df49c4}{infected}} = \textcolor{keyword}{false};
+26     \mbox{\hyperlink{class_quad_ae2197ad46a2d7e409b2ca9e7ac25a80c}{resistant}} = \textcolor{keyword}{false};
+27     \mbox{\hyperlink{class_quad_a83667bb824c1d6eca6c9c8b6e6d07d06}{sprite}}.setTexture(\mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->transparentTexture);
+28     
+29 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_quad_af92ade1062347d22d3715696f5f2449c}\label{class_quad_af92ade1062347d22d3715696f5f2449c}} 
+\index{Quad@{Quad}!set\+Infected@{set\+Infected}}
+\index{set\+Infected@{set\+Infected}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{set\+Infected()}{setInfected()}}
+{\footnotesize\ttfamily void Quad\+::set\+Infected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Metoda która ustawia komórkę w stan zarażenia. 
+\begin{DoxyCode}
+32 \{
+33     \mbox{\hyperlink{class_quad_a4994c09af588aeb08c482ea46494a08c}{healthy}} = \textcolor{keyword}{false};
+34     \mbox{\hyperlink{class_quad_ae439ca631a9f51147b9d84a9c9df49c4}{infected}} = \textcolor{keyword}{true};
+35     \mbox{\hyperlink{class_quad_ae2197ad46a2d7e409b2ca9e7ac25a80c}{resistant}} = \textcolor{keyword}{false};
+36     \mbox{\hyperlink{class_quad_a83667bb824c1d6eca6c9c8b6e6d07d06}{sprite}}.setTexture(\mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->solidTexture);
+37 
+38     \mbox{\hyperlink{class_quad_ace5b5f07a650f624aeb07806bc34d3f6}{p\_animation}} = \mbox{\hyperlink{classthor_1_1_color_animation_modified}{thor::ColorAnimationModified}}(&
+      \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->infectionGradient);
+39     \mbox{\hyperlink{class_quad_ace5b5f07a650f624aeb07806bc34d3f6}{p\_animation}}(\mbox{\hyperlink{class_quad_a83667bb824c1d6eca6c9c8b6e6d07d06}{sprite}}, 0.0f);
+40 
+41     \mbox{\hyperlink{class_quad_a30c2f4952b357ab59f018b766d2c9da2}{hitTime}} = \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_acc1792d778ba9cd1d88d5e86a23373fb}{globalClock}}.getElapsedTime();
+42 
+43 
+44     \mbox{\hyperlink{class_quad_ad66d1a97fdbecb53ea43af7361b4f124}{m\_nearbyQuads}}.clear();
+45     \mbox{\hyperlink{class_quad_ad66d1a97fdbecb53ea43af7361b4f124}{m\_nearbyQuads}}.shrink\_to\_fit();
+46 
+47     \mbox{\hyperlink{class_utility}{Utility}}().\mbox{\hyperlink{class_utility_ae89bf9504ce0848783234853483da262}{generateNearbyElements}}(&
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileQuads,&\mbox{\hyperlink{class_quad_ad66d1a97fdbecb53ea43af7361b4f124}{m\_nearbyQuads}}, 
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileSize,\mbox{\hyperlink{class_quad_af0820dc173ffac240bcfe0a19dc2fe8a}{position}});
+48 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_quad_a1f3970e8f264eabe131e20af7017f940}\label{class_quad_a1f3970e8f264eabe131e20af7017f940}} 
+\index{Quad@{Quad}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{set\+Position()}{setPosition()}}
+{\footnotesize\ttfamily void Quad\+::set\+Position (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Metoda odpowiadająca za ustawienie komórki na planszy. 
+\begin{DoxyParams}{Parametry}
+{\em x} & Wartość typu int opisująca położenie na osi x. \\
+\hline
+{\em y} & Wartość typu int opisująca położenie na osi y. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+111 \{
+112     \mbox{\hyperlink{class_quad_af0820dc173ffac240bcfe0a19dc2fe8a}{position}} = sf::Vector2u(x, y);
+113     \mbox{\hyperlink{class_quad_a83667bb824c1d6eca6c9c8b6e6d07d06}{sprite}}.setPosition(x * \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->quadDimensions.x, y*
+       \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->\mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quadDimensions}}.y);
+114 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_quad_a92ac7d4d3d789cce9339eadc77fd8185}\label{class_quad_a92ac7d4d3d789cce9339eadc77fd8185}} 
+\index{Quad@{Quad}!set\+Resistance@{set\+Resistance}}
+\index{set\+Resistance@{set\+Resistance}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{set\+Resistance()}{setResistance()}}
+{\footnotesize\ttfamily void Quad\+::set\+Resistance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Metoda która ustawia komórkę w stan odporności. 
+\begin{DoxyCode}
+51 \{
+52     \mbox{\hyperlink{class_quad_a4994c09af588aeb08c482ea46494a08c}{healthy}} = \textcolor{keyword}{false};
+53     \mbox{\hyperlink{class_quad_ae439ca631a9f51147b9d84a9c9df49c4}{infected}} = \textcolor{keyword}{false};
+54     \mbox{\hyperlink{class_quad_ae2197ad46a2d7e409b2ca9e7ac25a80c}{resistant}} = \textcolor{keyword}{true};
+55     \mbox{\hyperlink{class_quad_a6ccb745d5e70603957948d681b60e0f8}{m\_nearbyInfected}} = \textcolor{keyword}{false};
+56 
+57     \mbox{\hyperlink{class_quad_a83667bb824c1d6eca6c9c8b6e6d07d06}{sprite}}.setTexture(\mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->solidTexture);
+58 
+59     \mbox{\hyperlink{class_quad_ace5b5f07a650f624aeb07806bc34d3f6}{p\_animation}} = \mbox{\hyperlink{classthor_1_1_color_animation_modified}{thor::ColorAnimationModified}}(&
+      \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->resistanceGradient);
+60     \mbox{\hyperlink{class_quad_ace5b5f07a650f624aeb07806bc34d3f6}{p\_animation}}(\mbox{\hyperlink{class_quad_a83667bb824c1d6eca6c9c8b6e6d07d06}{sprite}}, 0.0f);
+61 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_quad_a67483d3d113d177c0820f586a923e65e}\label{class_quad_a67483d3d113d177c0820f586a923e65e}} 
+\index{Quad@{Quad}!update\+Nearby\+Elements@{update\+Nearby\+Elements}}
+\index{update\+Nearby\+Elements@{update\+Nearby\+Elements}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{update\+Nearby\+Elements()}{updateNearbyElements()}}
+{\footnotesize\ttfamily void Quad\+::update\+Nearby\+Elements (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Metoda odpowiadająca za aktualizację wektora pobliskich elementów. Wektor jest czyszczony z elementów. Następnie jest wywoływana funkcja z klasy \mbox{\hyperlink{class_utility}{Utility}} o prototypie\+: void \mbox{\hyperlink{class_utility_ae89bf9504ce0848783234853483da262}{Utility\+::generate\+Nearby\+Elements}}(std\+::vector$<$\+Quad$>$ {\itshape tile\+Quads, std\+::vector$<$\mbox{\hyperlink{class_quad}{Quad}}}$>$ $\ast$nearby\+Quads, sf\+::\+Vector2u tile\+Size, sf\+::\+Vector2u position); 
+\begin{DoxyCode}
+117 \{
+118     \mbox{\hyperlink{class_quad_ad66d1a97fdbecb53ea43af7361b4f124}{m\_nearbyQuads}}.clear();
+119     \mbox{\hyperlink{class_quad_ad66d1a97fdbecb53ea43af7361b4f124}{m\_nearbyQuads}}.shrink\_to\_fit();
+120 
+121     \mbox{\hyperlink{class_utility}{Utility}}().\mbox{\hyperlink{class_utility_ae89bf9504ce0848783234853483da262}{generateNearbyElements}}(&
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileQuads, &\mbox{\hyperlink{class_quad_ad66d1a97fdbecb53ea43af7361b4f124}{m\_nearbyQuads}}, 
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileSize, \mbox{\hyperlink{class_quad_af0820dc173ffac240bcfe0a19dc2fe8a}{position}});
+122 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_quad_aed458aa7db6bf84c6a3060339c6a27c0}\label{class_quad_aed458aa7db6bf84c6a3060339c6a27c0}} 
+\index{Quad@{Quad}!update\+State@{update\+State}}
+\index{update\+State@{update\+State}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{update\+State()}{updateState()}}
+{\footnotesize\ttfamily void Quad\+::update\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Metoda aktualizująca stan komórki. Sprawdza czasy poszczególnych etapów i ustawia odpowiedni stan komórki. 
+\begin{DoxyCode}
+64 \{
+65     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_quad_a4994c09af588aeb08c482ea46494a08c}{healthy}}) \textcolor{keywordflow}{return};
+66     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_quad_ae439ca631a9f51147b9d84a9c9df49c4}{infected}} || \mbox{\hyperlink{class_quad_a033c364211aab4e91aeb1609d4d890fe}{pointOfInfection}})
+67     \{   
+68         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->globalClock.getElapsedTime() -
+       \mbox{\hyperlink{class_quad_a30c2f4952b357ab59f018b766d2c9da2}{hitTime}} < \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_a9a2b45617e4b4899da8af7905fa75a40}{lengthOfInfection}} || \mbox{\hyperlink{class_quad_a033c364211aab4e91aeb1609d4d890fe}{pointOfInfection}})
+69         \{           
+70             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_a131a5c0b576e510b4c61c3c19b0efe81}{colorGradation}})
+71             \{
+72                 \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_quad_a033c364211aab4e91aeb1609d4d890fe}{pointOfInfection}})\mbox{\hyperlink{class_quad_ace5b5f07a650f624aeb07806bc34d3f6}{p\_animation}}(
+      \mbox{\hyperlink{class_quad_a83667bb824c1d6eca6c9c8b6e6d07d06}{sprite}}, (\mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->globalClock.getElapsedTime
+      () - \mbox{\hyperlink{class_quad_a30c2f4952b357ab59f018b766d2c9da2}{hitTime}}) / \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_a9a2b45617e4b4899da8af7905fa75a40}{lengthOfInfection}});
+73                 
+74             \}
+75             \textcolor{keywordflow}{else} \mbox{\hyperlink{class_quad_ace5b5f07a650f624aeb07806bc34d3f6}{p\_animation}}(\mbox{\hyperlink{class_quad_a83667bb824c1d6eca6c9c8b6e6d07d06}{sprite}}, 0.0f);
+76             \textcolor{keywordflow}{if}(!\mbox{\hyperlink{class_quad_a6ccb745d5e70603957948d681b60e0f8}{m\_nearbyInfected}} && !(
+      \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->globalClock.getElapsedTime() - 
+      \mbox{\hyperlink{class_quad_a30c2f4952b357ab59f018b766d2c9da2}{hitTime}} < \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_a0d1b39d5cc136b5a3db2ddf61e4a055d}{lengthOfInfectionGap}}))
+77             \{
+78 
+79                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_ad283e14644ea7fc2dc2713841cd2620f}{multiInfectionsOfQuad}}) \mbox{\hyperlink{class_quad_a6ccb745d5e70603957948d681b60e0f8}{m\_nearbyInfected}} = \textcolor{keyword}{true};
+80                 \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} &ne : \mbox{\hyperlink{class_quad_ad66d1a97fdbecb53ea43af7361b4f124}{m\_nearbyQuads}})
+81                 \{
+82                     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_utility}{Utility}}().\mbox{\hyperlink{class_utility_a1737e13071619724884c55559c34d727}{yesOrNo}}(
+      \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->probabilityOfInfection) && ne->healthy)
+83                     \{
+84                         ne->setInfected();
+85                         ne->hitTime = \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_acc1792d778ba9cd1d88d5e86a23373fb}{globalClock}}.getElapsedTime();
+86                     \}
+87                 \}
+88             \}
+89         \}\textcolor{keywordflow}{else}
+90         \{
+91             \mbox{\hyperlink{class_quad_a92ac7d4d3d789cce9339eadc77fd8185}{setResistance}}();
+92             \mbox{\hyperlink{class_quad_a30c2f4952b357ab59f018b766d2c9da2}{hitTime}} = \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_acc1792d778ba9cd1d88d5e86a23373fb}{globalClock}}.getElapsedTime();    
+93         \}
+94     \}\textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_quad_ae2197ad46a2d7e409b2ca9e7ac25a80c}{resistant}})
+95     \{
+96         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->globalClock.getElapsedTime() 
+      - \mbox{\hyperlink{class_quad_a30c2f4952b357ab59f018b766d2c9da2}{hitTime}} < \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_a1c7091242ba583df542bd22643ccc509}{lengthOfResistance}})
+97         \{
+98             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_a131a5c0b576e510b4c61c3c19b0efe81}{colorGradation}})
+99             \{
+100                 \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_quad_a033c364211aab4e91aeb1609d4d890fe}{pointOfInfection}})\mbox{\hyperlink{class_quad_ace5b5f07a650f624aeb07806bc34d3f6}{p\_animation}}(
+      \mbox{\hyperlink{class_quad_a83667bb824c1d6eca6c9c8b6e6d07d06}{sprite}}, (\mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->globalClock.getElapsedTime
+      () - \mbox{\hyperlink{class_quad_a30c2f4952b357ab59f018b766d2c9da2}{hitTime}}) / \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_a1c7091242ba583df542bd22643ccc509}{lengthOfResistance}});
+101 
+102             \}
+103             \textcolor{keywordflow}{else} \mbox{\hyperlink{class_quad_ace5b5f07a650f624aeb07806bc34d3f6}{p\_animation}}(\mbox{\hyperlink{class_quad_a83667bb824c1d6eca6c9c8b6e6d07d06}{sprite}}, 0.0f);
+104             \textcolor{keywordflow}{return};
+105         \}
+106         \textcolor{keywordflow}{else} \mbox{\hyperlink{class_quad_a3b6d55ec11182c7151bb3894ab397204}{setHealthy}}();
+107     \}
+108 \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\mbox{\Hypertarget{class_quad_a4994c09af588aeb08c482ea46494a08c}\label{class_quad_a4994c09af588aeb08c482ea46494a08c}} 
+\index{Quad@{Quad}!healthy@{healthy}}
+\index{healthy@{healthy}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{healthy}{healthy}}
+{\footnotesize\ttfamily bool Quad\+::healthy}
+
+Zmienna typu bool odpowiadająca za poinformowanie czy komórka jest zdrowa. \mbox{\Hypertarget{class_quad_a30c2f4952b357ab59f018b766d2c9da2}\label{class_quad_a30c2f4952b357ab59f018b766d2c9da2}} 
+\index{Quad@{Quad}!hit\+Time@{hit\+Time}}
+\index{hit\+Time@{hit\+Time}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{hit\+Time}{hitTime}}
+{\footnotesize\ttfamily sf\+::\+Time Quad\+::hit\+Time}
+
+Zmienna przechowująca czas w którym została zainfekowana. \mbox{\Hypertarget{class_quad_ae439ca631a9f51147b9d84a9c9df49c4}\label{class_quad_ae439ca631a9f51147b9d84a9c9df49c4}} 
+\index{Quad@{Quad}!infected@{infected}}
+\index{infected@{infected}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{infected}{infected}}
+{\footnotesize\ttfamily bool Quad\+::infected}
+
+Zmienna typu bool odpowiadająca za poinformowanie czy komórka jest zainfekowana. \mbox{\Hypertarget{class_quad_a6ccb745d5e70603957948d681b60e0f8}\label{class_quad_a6ccb745d5e70603957948d681b60e0f8}} 
+\index{Quad@{Quad}!m\+\_\+nearby\+Infected@{m\+\_\+nearby\+Infected}}
+\index{m\+\_\+nearby\+Infected@{m\+\_\+nearby\+Infected}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{m\+\_\+nearby\+Infected}{m\_nearbyInfected}}
+{\footnotesize\ttfamily bool Quad\+::m\+\_\+nearby\+Infected\hspace{0.3cm}{\ttfamily [private]}}
+
+Zmienna typu bool mająca na celu informowania czy sąsiednie komórki zostały zarażone. \mbox{\Hypertarget{class_quad_ad66d1a97fdbecb53ea43af7361b4f124}\label{class_quad_ad66d1a97fdbecb53ea43af7361b4f124}} 
+\index{Quad@{Quad}!m\+\_\+nearby\+Quads@{m\+\_\+nearby\+Quads}}
+\index{m\+\_\+nearby\+Quads@{m\+\_\+nearby\+Quads}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{m\+\_\+nearby\+Quads}{m\_nearbyQuads}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_quad}{Quad}}$\ast$$>$ Quad\+::m\+\_\+nearby\+Quads\hspace{0.3cm}{\ttfamily [private]}}
+
+Wektor psoiadający wskaźniki do sąsiednich elementów. \mbox{\Hypertarget{class_quad_a6f4ba6ebde2332f1c4b34661089550e5}\label{class_quad_a6f4ba6ebde2332f1c4b34661089550e5}} 
+\index{Quad@{Quad}!m\+\_\+sprite@{m\+\_\+sprite}}
+\index{m\+\_\+sprite@{m\+\_\+sprite}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{m\+\_\+sprite}{m\_sprite}}
+{\footnotesize\ttfamily sf\+::\+Sprite Quad\+::m\+\_\+sprite\hspace{0.3cm}{\ttfamily [private]}}
+
+Zmienna typu sf\+::\+Sprite posiadająca Sprite komórki. \mbox{\Hypertarget{class_quad_ace5b5f07a650f624aeb07806bc34d3f6}\label{class_quad_ace5b5f07a650f624aeb07806bc34d3f6}} 
+\index{Quad@{Quad}!p\+\_\+animation@{p\+\_\+animation}}
+\index{p\+\_\+animation@{p\+\_\+animation}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{p\+\_\+animation}{p\_animation}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classthor_1_1_color_animation_modified}{thor\+::\+Color\+Animation\+Modified}} Quad\+::p\+\_\+animation}
+
+Zmienna służąca animacji koloru komórki. \mbox{\Hypertarget{class_quad_a033c364211aab4e91aeb1609d4d890fe}\label{class_quad_a033c364211aab4e91aeb1609d4d890fe}} 
+\index{Quad@{Quad}!point\+Of\+Infection@{point\+Of\+Infection}}
+\index{point\+Of\+Infection@{point\+Of\+Infection}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{point\+Of\+Infection}{pointOfInfection}}
+{\footnotesize\ttfamily bool Quad\+::point\+Of\+Infection}
+
+Zmienna typu bool odpowiadająca za poinformowanie czy komórka jest stałym punktem infekcji. \mbox{\Hypertarget{class_quad_af0820dc173ffac240bcfe0a19dc2fe8a}\label{class_quad_af0820dc173ffac240bcfe0a19dc2fe8a}} 
+\index{Quad@{Quad}!position@{position}}
+\index{position@{position}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily sf\+::\+Vector2u Quad\+::position}
+
+Zmienna opisująca położenie komórki na planszy. \mbox{\Hypertarget{class_quad_ae2197ad46a2d7e409b2ca9e7ac25a80c}\label{class_quad_ae2197ad46a2d7e409b2ca9e7ac25a80c}} 
+\index{Quad@{Quad}!resistant@{resistant}}
+\index{resistant@{resistant}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{resistant}{resistant}}
+{\footnotesize\ttfamily bool Quad\+::resistant}
+
+Zmienna typu bool odpowiadająca za poinformowanie czy komórka jest odporna. \mbox{\Hypertarget{class_quad_a83667bb824c1d6eca6c9c8b6e6d07d06}\label{class_quad_a83667bb824c1d6eca6c9c8b6e6d07d06}} 
+\index{Quad@{Quad}!sprite@{sprite}}
+\index{sprite@{sprite}!Quad@{Quad}}
+\subsubsection{\texorpdfstring{sprite}{sprite}}
+{\footnotesize\ttfamily sf\+::\+Sprite Quad\+::sprite\hspace{0.3cm}{\ttfamily [private]}}
+
+Zmienna przechwoująca sprite komórki. 
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_quad_8h}{Quad.\+h}}\item 
+\mbox{\hyperlink{_quad_8cpp}{Quad.\+cpp}}\end{DoxyCompactItemize}

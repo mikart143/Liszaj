@@ -1,0 +1,308 @@
+\hypertarget{class_options}{}\section{Dokumentacja klasy Options}
+\label{class_options}\index{Options@{Options}}
+
+
+{\ttfamily \#include $<$Options.\+h$>$}
+
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_options_ab72fb640172a6109e34c8a5366563753}{Options}} ()
+\item 
+\mbox{\hyperlink{class_options_a86ddb85b183f8b58af5481f30a42fa92}{$\sim$\+Options}} ()
+\item 
+void \mbox{\hyperlink{class_options_aba27e24489aab55dc9d1d3c436709a73}{draw}} ()
+\item 
+void \mbox{\hyperlink{class_options_a7304b6cb34a2f1bbc5aac543778f1de9}{set\+Tile}} (\mbox{\hyperlink{class_tile}{Tile}} $\ast$tile)
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty publiczne}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_options_aef217faac2fc40d51e584cbc11c738d5}{infection\+Time}}
+\item 
+float \mbox{\hyperlink{class_options_abbe6566b3ae55392365a1a89ece5ff72}{resistance\+Time}}
+\item 
+float \mbox{\hyperlink{class_options_ad8957194973c1d0c3c861b187cde47b9}{infection\+Gap\+Time}}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_options_acb384a30233b26ed44cc4dd4fc677b8e}{factors}}
+\item 
+int \mbox{\hyperlink{class_options_af0f36450ab33c6ab5e89113eebdb270b}{selected}}
+\item 
+Im\+Vec4 \mbox{\hyperlink{class_options_aa727b64a88f3b6dac54e70b675e303da}{infected\+Color}}
+\item 
+Im\+Vec4 \mbox{\hyperlink{class_options_a1dcf306ee25499d706f16aa120f2b2d2}{resistance\+Color}}
+\item 
+Im\+Vec4 \mbox{\hyperlink{class_options_a2da8226b9f582ed5e1870857f045151f}{healthy\+Color}}
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tile}{Tile}} $\ast$ \mbox{\hyperlink{class_options_a5bed080c76f38af4f624fc17a437427b}{m\+\_\+tile}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa służąca do obsługi i wyświetlania Opcji w Panelu Sterowania. 
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\mbox{\Hypertarget{class_options_ab72fb640172a6109e34c8a5366563753}\label{class_options_ab72fb640172a6109e34c8a5366563753}} 
+\index{Options@{Options}!Options@{Options}}
+\index{Options@{Options}!Options@{Options}}
+\subsubsection{\texorpdfstring{Options()}{Options()}}
+{\footnotesize\ttfamily Options\+::\+Options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Domyślny konstruktor. 
+\begin{DoxyCode}
+50 \{
+51 
+52     \mbox{\hyperlink{class_options_ad8957194973c1d0c3c861b187cde47b9}{infectionGapTime}} = \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_a0d1b39d5cc136b5a3db2ddf61e4a055d}{lengthOfInfectionGap}}.asSeconds();
+53     \mbox{\hyperlink{class_options_aef217faac2fc40d51e584cbc11c738d5}{infectionTime}} = \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_a9a2b45617e4b4899da8af7905fa75a40}{lengthOfInfection}}.asSeconds();
+54     \mbox{\hyperlink{class_options_abbe6566b3ae55392365a1a89ece5ff72}{resistanceTime}} = \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_a1c7091242ba583df542bd22643ccc509}{lengthOfResistance}}.asSeconds();
+55     \textcolor{comment}{//Przesłanie przez referencje}
+56     \mbox{\hyperlink{class_utility}{Utility}}().\mbox{\hyperlink{class_utility_a8aafe3b77344b4d230c431cbd64b09dc}{allDivisors}}(&\mbox{\hyperlink{class_options_acb384a30233b26ed44cc4dd4fc677b8e}{factors}});
+57     \mbox{\hyperlink{class_options_aa727b64a88f3b6dac54e70b675e303da}{infectedColor}} = ImColor(\mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->
+      \mbox{\hyperlink{class_options_aa727b64a88f3b6dac54e70b675e303da}{infectedColor}}.r, \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->
+      \mbox{\hyperlink{class_quad_settings_a52c89695cb1f151b8007e9170dd18bbf}{infectedColor}}.g, \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->
+      \mbox{\hyperlink{class_quad_settings_a52c89695cb1f151b8007e9170dd18bbf}{infectedColor}}.b, \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->
+      \mbox{\hyperlink{class_quad_settings_a52c89695cb1f151b8007e9170dd18bbf}{infectedColor}}.a);
+58     \mbox{\hyperlink{class_options_a1dcf306ee25499d706f16aa120f2b2d2}{resistanceColor}} = ImColor(\mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->
+      \mbox{\hyperlink{class_options_a1dcf306ee25499d706f16aa120f2b2d2}{resistanceColor}}.r, \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->
+      \mbox{\hyperlink{class_quad_settings_a9d813ff930e92de96045aa982b99b177}{resistanceColor}}.g, \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->
+      \mbox{\hyperlink{class_quad_settings_a9d813ff930e92de96045aa982b99b177}{resistanceColor}}.b, \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->
+      \mbox{\hyperlink{class_quad_settings_a9d813ff930e92de96045aa982b99b177}{resistanceColor}}.a);
+59     \mbox{\hyperlink{class_options_a2da8226b9f582ed5e1870857f045151f}{healthyColor}} = ImColor(\mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->
+      \mbox{\hyperlink{class_options_a2da8226b9f582ed5e1870857f045151f}{healthyColor}}.r, \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->
+      \mbox{\hyperlink{class_quad_settings_ad170bfeb3a4bc5157107cc07eba36067}{healthyColor}}.g, \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->
+      \mbox{\hyperlink{class_quad_settings_ad170bfeb3a4bc5157107cc07eba36067}{healthyColor}}.b, \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->
+      \mbox{\hyperlink{class_quad_settings_ad170bfeb3a4bc5157107cc07eba36067}{healthyColor}}.a);
+60 
+61 
+62 
+63 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_options_a86ddb85b183f8b58af5481f30a42fa92}\label{class_options_a86ddb85b183f8b58af5481f30a42fa92}} 
+\index{Options@{Options}!````~Options@{$\sim$\+Options}}
+\index{````~Options@{$\sim$\+Options}!Options@{Options}}
+\subsubsection{\texorpdfstring{$\sim$\+Options()}{~Options()}}
+{\footnotesize\ttfamily Options\+::$\sim$\+Options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destruktor. 
+\begin{DoxyCode}
+67 \{
+68 \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{class_options_aba27e24489aab55dc9d1d3c436709a73}\label{class_options_aba27e24489aab55dc9d1d3c436709a73}} 
+\index{Options@{Options}!draw@{draw}}
+\index{draw@{draw}!Options@{Options}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Options\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Metoda obsługująca rysowanie wszystkich elementów. 
+\begin{DoxyCode}
+71 \{
+72 
+73     \textcolor{comment}{// Pausing logic of program}
+74     \textcolor{keywordflow}{if} (ImGui::Button(\textcolor{stringliteral}{"Play/Pause"})) \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_a5196bd793ff7383a45fe9d4041cc0e97}{stopLogic}} = !\mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_a5196bd793ff7383a45fe9d4041cc0e97}{stopLogic}};
+75     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->stopLogic && 
+      \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->globalClock.isRunning()) 
+      \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->\mbox{\hyperlink{class_simulation_settings_acc1792d778ba9cd1d88d5e86a23373fb}{globalClock}}.stop();
+76     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->stopLogic && !
+      \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->globalClock.isRunning()) 
+      \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->\mbox{\hyperlink{class_simulation_settings_acc1792d778ba9cd1d88d5e86a23373fb}{globalClock}}.start();
+77 
+78     \textcolor{comment}{//Restarting simulation}
+79     \textcolor{keywordflow}{if} (ImGui::Button(\textcolor{stringliteral}{"Restart"}))
+80     \{
+81         \textcolor{keywordflow}{if} (isinf(\mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->quadDimensions.x) || isinf(
+      \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->quadDimensions.y)) 
+      \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->\mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quadDimensions}} = sf::Vector2f(10,10);
+82         \mbox{\hyperlink{class_options_a5bed080c76f38af4f624fc17a437427b}{m\_tile}}->\mbox{\hyperlink{class_tile_a96ce55d5fcb4b12880531af2138ba6b2}{init}}();
+83     \}
+84 
+85     ImGui::Separator();
+86 
+87     \textcolor{keywordflow}{if} (\mbox{\hyperlink{namespace_im_gui_a405b19deb7db39d92f42ac1329740892}{ImGui::Combo}}(\textcolor{stringliteral}{"Rozmiary komorek"}, &\mbox{\hyperlink{class_options_af0f36450ab33c6ab5e89113eebdb270b}{selected}}, \mbox{\hyperlink{class_options_acb384a30233b26ed44cc4dd4fc677b8e}{factors}}))
+88     \{
+89         \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->\mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quadDimensions}} = sf::Vector2f(
+      std::stoi(\mbox{\hyperlink{class_options_acb384a30233b26ed44cc4dd4fc677b8e}{factors}}[\mbox{\hyperlink{class_options_af0f36450ab33c6ab5e89113eebdb270b}{selected}}]), std::stoi(\mbox{\hyperlink{class_options_acb384a30233b26ed44cc4dd4fc677b8e}{factors}}[\mbox{\hyperlink{class_options_af0f36450ab33c6ab5e89113eebdb270b}{selected}}]));
+90         \mbox{\hyperlink{class_options_a5bed080c76f38af4f624fc17a437427b}{m\_tile}}->\mbox{\hyperlink{class_tile_a96ce55d5fcb4b12880531af2138ba6b2}{init}}();
+91     \}
+92 
+93     \textcolor{keywordflow}{if} (ImGui::Button(\textcolor{stringliteral}{"+"})) \mbox{\hyperlink{class_options_a5bed080c76f38af4f624fc17a437427b}{m\_tile}}->\mbox{\hyperlink{class_tile_a89f236ddba83484658f4f68e117a786e}{add}}(); ImGui::SameLine(); \textcolor{keywordflow}{if} (ImGui::Button(\textcolor{stringliteral}{"-"})) 
+      \mbox{\hyperlink{class_options_a5bed080c76f38af4f624fc17a437427b}{m\_tile}}->\mbox{\hyperlink{class_tile_a9f5897287ec33ef87fe88a2b254d1837}{remove}}(); ImGui::SameLine(); ImGui::Text(\textcolor{stringliteral}{"Dodawanie i usuwanie komorek"});
+94 
+95     ImGui::Separator();
+96 
+97     ImGui::Checkbox(\textcolor{stringliteral}{"Punkt zarazenia"}, &\mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      pointOfInfection);
+98 
+99     ImGui::Separator();
+100 
+101     ImGui::Checkbox(\textcolor{stringliteral}{"Gradacja kolorow"}, &\mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      colorGradation);
+102 
+103     ImGui::Separator();
+104 
+105     ImGui::Text(\textcolor{stringliteral}{"Kolory komorek"});
+106 
+107 
+108 
+109     \textcolor{keywordflow}{if} (ImGui::ColorButton(\textcolor{stringliteral}{"Kolor zainfekowanej komorki"}, \mbox{\hyperlink{class_options_aa727b64a88f3b6dac54e70b675e303da}{infectedColor}})) ImGui::OpenPopup(\textcolor{stringliteral}{"
+      InfectedColorPicker"});
+110     \textcolor{keywordflow}{if}(ImGui::BeginPopup(\textcolor{stringliteral}{"InfectedColorPicker"}))
+111     \{
+112         \textcolor{keywordflow}{if} (ImGui::ColorPicker3(\textcolor{stringliteral}{"Zarazone"}, (\textcolor{keywordtype}{float}*)&\mbox{\hyperlink{class_options_aa727b64a88f3b6dac54e70b675e303da}{infectedColor}}))
+113         \{
+114             \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->
+      \mbox{\hyperlink{class_quad_settings_aa880429606846a5d629a334859ae0f37}{updateInfectedTextureColor}}(\mbox{\hyperlink{class_options_aa727b64a88f3b6dac54e70b675e303da}{infectedColor}});
+115             \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->
+      \mbox{\hyperlink{class_quad_settings_a75688efe96a7a34aa87600cccfe4a40d}{updateResistanceTextureColor}}(\mbox{\hyperlink{class_options_a1dcf306ee25499d706f16aa120f2b2d2}{resistanceColor}});
+116         \}
+117             
+118 
+119         ImGui::EndPopup();
+120     \}
+121     ImGui::SameLine();
+122     ImGui::Text(\textcolor{stringliteral}{"Zarazona"});
+123     ImGui::SameLine();
+124     \textcolor{keywordflow}{if} (ImGui::ColorButton(\textcolor{stringliteral}{"Kolor odpornej komorki"}, \mbox{\hyperlink{class_options_a1dcf306ee25499d706f16aa120f2b2d2}{resistanceColor}})) ImGui::OpenPopup(\textcolor{stringliteral}{"
+      ResistedColorPicker"});
+125     \textcolor{keywordflow}{if} (ImGui::BeginPopup(\textcolor{stringliteral}{"ResistedColorPicker"}))
+126     \{
+127         \textcolor{keywordflow}{if} (ImGui::ColorPicker3(\textcolor{stringliteral}{"Odporna"}, (\textcolor{keywordtype}{float}*)&\mbox{\hyperlink{class_options_a1dcf306ee25499d706f16aa120f2b2d2}{resistanceColor}}))
+128         \{
+129             \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->
+      \mbox{\hyperlink{class_quad_settings_a75688efe96a7a34aa87600cccfe4a40d}{updateResistanceTextureColor}}(\mbox{\hyperlink{class_options_a1dcf306ee25499d706f16aa120f2b2d2}{resistanceColor}});
+130             \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->
+      \mbox{\hyperlink{class_quad_settings_aa880429606846a5d629a334859ae0f37}{updateInfectedTextureColor}}(\mbox{\hyperlink{class_options_aa727b64a88f3b6dac54e70b675e303da}{infectedColor}});
+131         \}
+132             
+133 
+134         ImGui::EndPopup();
+135     \}
+136     ImGui::SameLine();
+137     ImGui::Text(\textcolor{stringliteral}{"Odporna"});
+138     ImGui::SameLine();
+139     \textcolor{keywordflow}{if} (ImGui::ColorButton(\textcolor{stringliteral}{"Kolor zdrowej komorki"}, \mbox{\hyperlink{class_options_a2da8226b9f582ed5e1870857f045151f}{healthyColor}})) ImGui::OpenPopup(\textcolor{stringliteral}{"
+      HealthyColorPicker"});
+140     \textcolor{keywordflow}{if} (ImGui::BeginPopup(\textcolor{stringliteral}{"HealthyColorPicker"}))
+141     \{
+142         \textcolor{keywordflow}{if} (ImGui::ColorPicker3(\textcolor{stringliteral}{"Zdrowa"}, (\textcolor{keywordtype}{float}*)&\mbox{\hyperlink{class_options_a2da8226b9f582ed5e1870857f045151f}{healthyColor}}))
+143         \{
+144             \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->
+      \mbox{\hyperlink{class_quad_settings_a82d6bd77e99f58c1a24122548449c6bc}{updateHealthyTextureColor}}(\mbox{\hyperlink{class_options_a2da8226b9f582ed5e1870857f045151f}{healthyColor}});
+145         \}
+146             
+147 
+148         ImGui::EndPopup();
+149     \}
+150     ImGui::SameLine();
+151     ImGui::Text(\textcolor{stringliteral}{"Zdrowa"});
+152 
+153     ImGui::Separator();
+154     
+155     ImGui::Checkbox(\textcolor{stringliteral}{"Pojedyncze zarazenie"}, &\mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}
+      ()->multiInfectionsOfQuad);
+156     ImGui::SliderFloat(\textcolor{stringliteral}{"Prawdopodobienstwo"}, &\mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}
+      ()->probabilityOfInfection, 0, 1, \textcolor{stringliteral}{"%.1f"});
+157 
+158     ImGui::Separator();
+159 
+160     ImGui::DragFloat(\textcolor{stringliteral}{"Czas infekcji"}, &\mbox{\hyperlink{class_options_aef217faac2fc40d51e584cbc11c738d5}{infectionTime}}, 0.1, 0, 60);
+161     ImGui::DragFloat(\textcolor{stringliteral}{"Czas odpornosci"}, &\mbox{\hyperlink{class_options_abbe6566b3ae55392365a1a89ece5ff72}{resistanceTime}}, 0.1, 0, 60);
+162     ImGui::DragFloat(\textcolor{stringliteral}{"Czas pomiedzy infekcjami"}, &\mbox{\hyperlink{class_options_ad8957194973c1d0c3c861b187cde47b9}{infectionGapTime}}, 0.1, 0, 60);
+163 
+164     \textcolor{keywordflow}{if}(ImGui::Button(\textcolor{stringliteral}{"Zastosuj czasy"}))
+165     \{
+166         \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_a1c7091242ba583df542bd22643ccc509}{lengthOfResistance}} = sf::seconds(\mbox{\hyperlink{class_options_abbe6566b3ae55392365a1a89ece5ff72}{resistanceTime}});
+167         \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_a9a2b45617e4b4899da8af7905fa75a40}{lengthOfInfection}} = sf::seconds(\mbox{\hyperlink{class_options_aef217faac2fc40d51e584cbc11c738d5}{infectionTime}});
+168         \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_a0d1b39d5cc136b5a3db2ddf61e4a055d}{lengthOfInfectionGap}} = sf::seconds(\mbox{\hyperlink{class_options_ad8957194973c1d0c3c861b187cde47b9}{infectionGapTime}});
+169     \}
+170 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_options_a7304b6cb34a2f1bbc5aac543778f1de9}\label{class_options_a7304b6cb34a2f1bbc5aac543778f1de9}} 
+\index{Options@{Options}!set\+Tile@{set\+Tile}}
+\index{set\+Tile@{set\+Tile}!Options@{Options}}
+\subsubsection{\texorpdfstring{set\+Tile()}{setTile()}}
+{\footnotesize\ttfamily void Options\+::set\+Tile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tile}{Tile}} $\ast$}]{tile }\end{DoxyParamCaption})}
+
+Metoda służąca do ustawienia wskaźnika zmiennej m\+\_\+tile. 
+\begin{DoxyCode}
+173 \{
+174     \mbox{\hyperlink{class_options_a5bed080c76f38af4f624fc17a437427b}{m\_tile}} = tile;
+175 \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\mbox{\Hypertarget{class_options_acb384a30233b26ed44cc4dd4fc677b8e}\label{class_options_acb384a30233b26ed44cc4dd4fc677b8e}} 
+\index{Options@{Options}!factors@{factors}}
+\index{factors@{factors}!Options@{Options}}
+\subsubsection{\texorpdfstring{factors}{factors}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Options\+::factors}
+
+Wektor przechowujący wszystkie całkowite dzielniki szerokośći i wysokości ekranu. \mbox{\Hypertarget{class_options_a2da8226b9f582ed5e1870857f045151f}\label{class_options_a2da8226b9f582ed5e1870857f045151f}} 
+\index{Options@{Options}!healthy\+Color@{healthy\+Color}}
+\index{healthy\+Color@{healthy\+Color}!Options@{Options}}
+\subsubsection{\texorpdfstring{healthy\+Color}{healthyColor}}
+{\footnotesize\ttfamily Im\+Vec4 Options\+::healthy\+Color}
+
+Zmienna pomocnicza przechowująca kolor zdrowej komórki. \mbox{\Hypertarget{class_options_aa727b64a88f3b6dac54e70b675e303da}\label{class_options_aa727b64a88f3b6dac54e70b675e303da}} 
+\index{Options@{Options}!infected\+Color@{infected\+Color}}
+\index{infected\+Color@{infected\+Color}!Options@{Options}}
+\subsubsection{\texorpdfstring{infected\+Color}{infectedColor}}
+{\footnotesize\ttfamily Im\+Vec4 Options\+::infected\+Color}
+
+Zmienna pomocnicza przechowująca kolor zarażonej komórki. \mbox{\Hypertarget{class_options_ad8957194973c1d0c3c861b187cde47b9}\label{class_options_ad8957194973c1d0c3c861b187cde47b9}} 
+\index{Options@{Options}!infection\+Gap\+Time@{infection\+Gap\+Time}}
+\index{infection\+Gap\+Time@{infection\+Gap\+Time}!Options@{Options}}
+\subsubsection{\texorpdfstring{infection\+Gap\+Time}{infectionGapTime}}
+{\footnotesize\ttfamily float Options\+::infection\+Gap\+Time}
+
+Zmienna pomocnicza przechowująza czas pomiędzy infekcjami. \mbox{\Hypertarget{class_options_aef217faac2fc40d51e584cbc11c738d5}\label{class_options_aef217faac2fc40d51e584cbc11c738d5}} 
+\index{Options@{Options}!infection\+Time@{infection\+Time}}
+\index{infection\+Time@{infection\+Time}!Options@{Options}}
+\subsubsection{\texorpdfstring{infection\+Time}{infectionTime}}
+{\footnotesize\ttfamily float Options\+::infection\+Time}
+
+Zmienna pomocnicza przechowująca czas infekcji. \mbox{\Hypertarget{class_options_a5bed080c76f38af4f624fc17a437427b}\label{class_options_a5bed080c76f38af4f624fc17a437427b}} 
+\index{Options@{Options}!m\+\_\+tile@{m\+\_\+tile}}
+\index{m\+\_\+tile@{m\+\_\+tile}!Options@{Options}}
+\subsubsection{\texorpdfstring{m\+\_\+tile}{m\_tile}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tile}{Tile}}$\ast$ Options\+::m\+\_\+tile\hspace{0.3cm}{\ttfamily [private]}}
+
+Zmienna przechowująca wskaźnik do siatki w której mają być wdrażane zmiany. Zmiennej przypisywany jest wskaźnik przez metodę\+: void \mbox{\hyperlink{class_options_a7304b6cb34a2f1bbc5aac543778f1de9}{Options\+::set\+Tile(\+Tile $\ast$tile)}}; \mbox{\Hypertarget{class_options_a1dcf306ee25499d706f16aa120f2b2d2}\label{class_options_a1dcf306ee25499d706f16aa120f2b2d2}} 
+\index{Options@{Options}!resistance\+Color@{resistance\+Color}}
+\index{resistance\+Color@{resistance\+Color}!Options@{Options}}
+\subsubsection{\texorpdfstring{resistance\+Color}{resistanceColor}}
+{\footnotesize\ttfamily Im\+Vec4 Options\+::resistance\+Color}
+
+Zmienna pomocnicza przechowująca kolor odpornej komórki. \mbox{\Hypertarget{class_options_abbe6566b3ae55392365a1a89ece5ff72}\label{class_options_abbe6566b3ae55392365a1a89ece5ff72}} 
+\index{Options@{Options}!resistance\+Time@{resistance\+Time}}
+\index{resistance\+Time@{resistance\+Time}!Options@{Options}}
+\subsubsection{\texorpdfstring{resistance\+Time}{resistanceTime}}
+{\footnotesize\ttfamily float Options\+::resistance\+Time}
+
+Zmienna pomocnicza przechowująza czas odporności. \mbox{\Hypertarget{class_options_af0f36450ab33c6ab5e89113eebdb270b}\label{class_options_af0f36450ab33c6ab5e89113eebdb270b}} 
+\index{Options@{Options}!selected@{selected}}
+\index{selected@{selected}!Options@{Options}}
+\subsubsection{\texorpdfstring{selected}{selected}}
+{\footnotesize\ttfamily int Options\+::selected}
+
+Zmienna pomocnicza przechowująca numer wybranego elementu z listy możliwych dzielników. 
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_options_8h}{Options.\+h}}\item 
+\mbox{\hyperlink{_options_8cpp}{Options.\+cpp}}\end{DoxyCompactItemize}

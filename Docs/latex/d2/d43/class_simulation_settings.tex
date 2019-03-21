@@ -1,0 +1,186 @@
+\hypertarget{class_simulation_settings}{}\section{Dokumentacja klasy Simulation\+Settings}
+\label{class_simulation_settings}\index{Simulation\+Settings@{Simulation\+Settings}}
+
+
+{\ttfamily \#include $<$Simulation\+Settings.\+h$>$}
+
+\subsection*{Statyczne metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_simulation_settings}{Simulation\+Settings}} $\ast$ \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{get\+Instance}} ()
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty publiczne}
+\begin{DoxyCompactItemize}
+\item 
+thor\+::\+Stop\+Watch \mbox{\hyperlink{class_simulation_settings_acc1792d778ba9cd1d88d5e86a23373fb}{global\+Clock}}
+\item 
+sf\+::\+Time \mbox{\hyperlink{class_simulation_settings_a9a2b45617e4b4899da8af7905fa75a40}{length\+Of\+Infection}}
+\item 
+sf\+::\+Time \mbox{\hyperlink{class_simulation_settings_a1c7091242ba583df542bd22643ccc509}{length\+Of\+Resistance}}
+\item 
+sf\+::\+Time \mbox{\hyperlink{class_simulation_settings_a0d1b39d5cc136b5a3db2ddf61e4a055d}{length\+Of\+Infection\+Gap}}
+\item 
+float \mbox{\hyperlink{class_simulation_settings_a340d245affa1454fb60ddead2d2e133b}{probability\+Of\+Infection}}
+\item 
+bool \mbox{\hyperlink{class_simulation_settings_ad283e14644ea7fc2dc2713841cd2620f}{multi\+Infections\+Of\+Quad}}
+\item 
+bool \mbox{\hyperlink{class_simulation_settings_a5196bd793ff7383a45fe9d4041cc0e97}{stop\+Logic}}
+\item 
+bool \mbox{\hyperlink{class_simulation_settings_a3cf918e098904961a658c38047f607fd}{point\+Of\+Infection}}
+\item 
+bool \mbox{\hyperlink{class_simulation_settings_a131a5c0b576e510b4c61c3c19b0efe81}{color\+Gradation}}
+\item 
+float \mbox{\hyperlink{class_simulation_settings_a12861fbda2986c211cdeb3a59e38040b}{current\+F\+PS}}
+\end{DoxyCompactItemize}
+\subsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_simulation_settings_a2fafe4514597b881fbec0caced94c0e5}{Simulation\+Settings}} ()
+\item 
+\mbox{\hyperlink{class_simulation_settings_a7f09bfc79639238aa08fee0f6f2d0548}{$\sim$\+Simulation\+Settings}} ()
+\end{DoxyCompactItemize}
+\subsection*{Statyczne atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_simulation_settings}{Simulation\+Settings}} $\ast$ \mbox{\hyperlink{class_simulation_settings_a725fb3d79c85db8cd446425fac82b50a}{s\+\_\+simulation\+\_\+settings}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Singleton, który przechwuje najważniejsze informacje o symulacji. Informacje wykorzystywane są przez wszystkie komórki oraz zakładkę Statystyki w Panelu Sterowania. 
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\mbox{\Hypertarget{class_simulation_settings_a2fafe4514597b881fbec0caced94c0e5}\label{class_simulation_settings_a2fafe4514597b881fbec0caced94c0e5}} 
+\index{Simulation\+Settings@{Simulation\+Settings}!Simulation\+Settings@{Simulation\+Settings}}
+\index{Simulation\+Settings@{Simulation\+Settings}!Simulation\+Settings@{Simulation\+Settings}}
+\subsubsection{\texorpdfstring{Simulation\+Settings()}{SimulationSettings()}}
+{\footnotesize\ttfamily Simulation\+Settings\+::\+Simulation\+Settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Domyślny konstruktor. 
+\begin{DoxyCode}
+13 \{
+14     \mbox{\hyperlink{class_simulation_settings_a9a2b45617e4b4899da8af7905fa75a40}{lengthOfInfection}} = sf::seconds(6);
+15     \mbox{\hyperlink{class_simulation_settings_a1c7091242ba583df542bd22643ccc509}{lengthOfResistance}} = sf::seconds(3);
+16     \mbox{\hyperlink{class_simulation_settings_a0d1b39d5cc136b5a3db2ddf61e4a055d}{lengthOfInfectionGap}} = sf::seconds(0.1f);
+17     \mbox{\hyperlink{class_simulation_settings_acc1792d778ba9cd1d88d5e86a23373fb}{globalClock}}.restart();
+18 
+19     \mbox{\hyperlink{class_simulation_settings_a340d245affa1454fb60ddead2d2e133b}{probabilityOfInfection}} = 0.1f;
+20 
+21     \mbox{\hyperlink{class_simulation_settings_ad283e14644ea7fc2dc2713841cd2620f}{multiInfectionsOfQuad}} = \textcolor{keyword}{false};
+22 
+23     \mbox{\hyperlink{class_simulation_settings_a3cf918e098904961a658c38047f607fd}{pointOfInfection}} = \textcolor{keyword}{false};
+24 
+25     \mbox{\hyperlink{class_simulation_settings_a5196bd793ff7383a45fe9d4041cc0e97}{stopLogic}} = \textcolor{keyword}{false};
+26 
+27     \mbox{\hyperlink{class_simulation_settings_a131a5c0b576e510b4c61c3c19b0efe81}{colorGradation}} = \textcolor{keyword}{true};
+28 
+29     \mbox{\hyperlink{class_simulation_settings_a12861fbda2986c211cdeb3a59e38040b}{currentFPS}} = 0.f;
+30 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_simulation_settings_a7f09bfc79639238aa08fee0f6f2d0548}\label{class_simulation_settings_a7f09bfc79639238aa08fee0f6f2d0548}} 
+\index{Simulation\+Settings@{Simulation\+Settings}!````~Simulation\+Settings@{$\sim$\+Simulation\+Settings}}
+\index{````~Simulation\+Settings@{$\sim$\+Simulation\+Settings}!Simulation\+Settings@{Simulation\+Settings}}
+\subsubsection{\texorpdfstring{$\sim$\+Simulation\+Settings()}{~SimulationSettings()}}
+{\footnotesize\ttfamily Simulation\+Settings\+::$\sim$\+Simulation\+Settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Destruktor. 
+\begin{DoxyCode}
+34 \{
+35     \textcolor{keyword}{delete} \mbox{\hyperlink{class_simulation_settings_a725fb3d79c85db8cd446425fac82b50a}{s\_simulation\_settings}};
+36 \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}\label{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}} 
+\index{Simulation\+Settings@{Simulation\+Settings}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Simulation\+Settings@{Simulation\+Settings}}
+\subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_simulation_settings}{Simulation\+Settings}} $\ast$ Simulation\+Settings\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Metoda zwracająca instancje klasy. \begin{DoxyReturn}{Zwraca}
+Simulation\+Settings$\ast$ 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+6 \{
+7     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_simulation_settings_a725fb3d79c85db8cd446425fac82b50a}{s\_simulation\_settings}})
+8         \mbox{\hyperlink{class_simulation_settings_a725fb3d79c85db8cd446425fac82b50a}{s\_simulation\_settings}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_simulation_settings_a2fafe4514597b881fbec0caced94c0e5}{SimulationSettings}}();
+9     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_simulation_settings_a725fb3d79c85db8cd446425fac82b50a}{s\_simulation\_settings}};
+10 \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\mbox{\Hypertarget{class_simulation_settings_a131a5c0b576e510b4c61c3c19b0efe81}\label{class_simulation_settings_a131a5c0b576e510b4c61c3c19b0efe81}} 
+\index{Simulation\+Settings@{Simulation\+Settings}!color\+Gradation@{color\+Gradation}}
+\index{color\+Gradation@{color\+Gradation}!Simulation\+Settings@{Simulation\+Settings}}
+\subsubsection{\texorpdfstring{color\+Gradation}{colorGradation}}
+{\footnotesize\ttfamily bool Simulation\+Settings\+::color\+Gradation}
+
+Zmienna, która włącza bądź wyłącza gradacje kolorów. \mbox{\Hypertarget{class_simulation_settings_a12861fbda2986c211cdeb3a59e38040b}\label{class_simulation_settings_a12861fbda2986c211cdeb3a59e38040b}} 
+\index{Simulation\+Settings@{Simulation\+Settings}!current\+F\+PS@{current\+F\+PS}}
+\index{current\+F\+PS@{current\+F\+PS}!Simulation\+Settings@{Simulation\+Settings}}
+\subsubsection{\texorpdfstring{current\+F\+PS}{currentFPS}}
+{\footnotesize\ttfamily float Simulation\+Settings\+::current\+F\+PS}
+
+Zmienna przechowująca aktualną liczbę klatek na sekundę. \mbox{\Hypertarget{class_simulation_settings_acc1792d778ba9cd1d88d5e86a23373fb}\label{class_simulation_settings_acc1792d778ba9cd1d88d5e86a23373fb}} 
+\index{Simulation\+Settings@{Simulation\+Settings}!global\+Clock@{global\+Clock}}
+\index{global\+Clock@{global\+Clock}!Simulation\+Settings@{Simulation\+Settings}}
+\subsubsection{\texorpdfstring{global\+Clock}{globalClock}}
+{\footnotesize\ttfamily thor\+::\+Stop\+Watch Simulation\+Settings\+::global\+Clock}
+
+Zegar globalny dla symulacji. \mbox{\Hypertarget{class_simulation_settings_a9a2b45617e4b4899da8af7905fa75a40}\label{class_simulation_settings_a9a2b45617e4b4899da8af7905fa75a40}} 
+\index{Simulation\+Settings@{Simulation\+Settings}!length\+Of\+Infection@{length\+Of\+Infection}}
+\index{length\+Of\+Infection@{length\+Of\+Infection}!Simulation\+Settings@{Simulation\+Settings}}
+\subsubsection{\texorpdfstring{length\+Of\+Infection}{lengthOfInfection}}
+{\footnotesize\ttfamily sf\+::\+Time Simulation\+Settings\+::length\+Of\+Infection}
+
+Czas w sekundach, jak długo ma trwać choroba. \mbox{\Hypertarget{class_simulation_settings_a0d1b39d5cc136b5a3db2ddf61e4a055d}\label{class_simulation_settings_a0d1b39d5cc136b5a3db2ddf61e4a055d}} 
+\index{Simulation\+Settings@{Simulation\+Settings}!length\+Of\+Infection\+Gap@{length\+Of\+Infection\+Gap}}
+\index{length\+Of\+Infection\+Gap@{length\+Of\+Infection\+Gap}!Simulation\+Settings@{Simulation\+Settings}}
+\subsubsection{\texorpdfstring{length\+Of\+Infection\+Gap}{lengthOfInfectionGap}}
+{\footnotesize\ttfamily sf\+::\+Time Simulation\+Settings\+::length\+Of\+Infection\+Gap}
+
+Czas w sekundach pomiędzy kolejnymi infekcjami. \mbox{\Hypertarget{class_simulation_settings_a1c7091242ba583df542bd22643ccc509}\label{class_simulation_settings_a1c7091242ba583df542bd22643ccc509}} 
+\index{Simulation\+Settings@{Simulation\+Settings}!length\+Of\+Resistance@{length\+Of\+Resistance}}
+\index{length\+Of\+Resistance@{length\+Of\+Resistance}!Simulation\+Settings@{Simulation\+Settings}}
+\subsubsection{\texorpdfstring{length\+Of\+Resistance}{lengthOfResistance}}
+{\footnotesize\ttfamily sf\+::\+Time Simulation\+Settings\+::length\+Of\+Resistance}
+
+Czas w sekundach, jak długo ma trwać odporność. \mbox{\Hypertarget{class_simulation_settings_ad283e14644ea7fc2dc2713841cd2620f}\label{class_simulation_settings_ad283e14644ea7fc2dc2713841cd2620f}} 
+\index{Simulation\+Settings@{Simulation\+Settings}!multi\+Infections\+Of\+Quad@{multi\+Infections\+Of\+Quad}}
+\index{multi\+Infections\+Of\+Quad@{multi\+Infections\+Of\+Quad}!Simulation\+Settings@{Simulation\+Settings}}
+\subsubsection{\texorpdfstring{multi\+Infections\+Of\+Quad}{multiInfectionsOfQuad}}
+{\footnotesize\ttfamily bool Simulation\+Settings\+::multi\+Infections\+Of\+Quad}
+
+Zmienna, która mówi o tym czy jest dozwolone wielokrotne zarażanie przez komórkę. \mbox{\Hypertarget{class_simulation_settings_a3cf918e098904961a658c38047f607fd}\label{class_simulation_settings_a3cf918e098904961a658c38047f607fd}} 
+\index{Simulation\+Settings@{Simulation\+Settings}!point\+Of\+Infection@{point\+Of\+Infection}}
+\index{point\+Of\+Infection@{point\+Of\+Infection}!Simulation\+Settings@{Simulation\+Settings}}
+\subsubsection{\texorpdfstring{point\+Of\+Infection}{pointOfInfection}}
+{\footnotesize\ttfamily bool Simulation\+Settings\+::point\+Of\+Infection}
+
+Zmienna mówiąca o tym czy aktualnie zarażane komórki są stałymi punktami zarażenia. \mbox{\Hypertarget{class_simulation_settings_a340d245affa1454fb60ddead2d2e133b}\label{class_simulation_settings_a340d245affa1454fb60ddead2d2e133b}} 
+\index{Simulation\+Settings@{Simulation\+Settings}!probability\+Of\+Infection@{probability\+Of\+Infection}}
+\index{probability\+Of\+Infection@{probability\+Of\+Infection}!Simulation\+Settings@{Simulation\+Settings}}
+\subsubsection{\texorpdfstring{probability\+Of\+Infection}{probabilityOfInfection}}
+{\footnotesize\ttfamily float Simulation\+Settings\+::probability\+Of\+Infection}
+
+Zmienna przechowująca prawdopodobieństwo zarażenia. \mbox{\Hypertarget{class_simulation_settings_a725fb3d79c85db8cd446425fac82b50a}\label{class_simulation_settings_a725fb3d79c85db8cd446425fac82b50a}} 
+\index{Simulation\+Settings@{Simulation\+Settings}!s\+\_\+simulation\+\_\+settings@{s\+\_\+simulation\+\_\+settings}}
+\index{s\+\_\+simulation\+\_\+settings@{s\+\_\+simulation\+\_\+settings}!Simulation\+Settings@{Simulation\+Settings}}
+\subsubsection{\texorpdfstring{s\+\_\+simulation\+\_\+settings}{s\_simulation\_settings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_simulation_settings}{Simulation\+Settings}} $\ast$ Simulation\+Settings\+::s\+\_\+simulation\+\_\+settings = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Jedyna instancja klasy \mbox{\hyperlink{class_simulation_settings}{Simulation\+Settings}}, która jest udostępniana przez static Simulation\+Settings$\ast$ \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{Simulation\+Settings\+::get\+Instance()}} \mbox{\Hypertarget{class_simulation_settings_a5196bd793ff7383a45fe9d4041cc0e97}\label{class_simulation_settings_a5196bd793ff7383a45fe9d4041cc0e97}} 
+\index{Simulation\+Settings@{Simulation\+Settings}!stop\+Logic@{stop\+Logic}}
+\index{stop\+Logic@{stop\+Logic}!Simulation\+Settings@{Simulation\+Settings}}
+\subsubsection{\texorpdfstring{stop\+Logic}{stopLogic}}
+{\footnotesize\ttfamily bool Simulation\+Settings\+::stop\+Logic}
+
+Zmienna, która służy do zatrzymywania symulacji. Tylko i wyłącznie logika symulacji jest zatrzymywana. 
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_simulation_settings_8h}{Simulation\+Settings.\+h}}\item 
+\mbox{\hyperlink{_simulation_settings_8cpp}{Simulation\+Settings.\+cpp}}\end{DoxyCompactItemize}

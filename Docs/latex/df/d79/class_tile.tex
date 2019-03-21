@@ -1,0 +1,317 @@
+\hypertarget{class_tile}{}\section{Dokumentacja klasy Tile}
+\label{class_tile}\index{Tile@{Tile}}
+
+
+{\ttfamily \#include $<$Tile.\+h$>$}
+
+Diagram dziedziczenia dla Tile\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{df/d79/class_tile}
+\end{center}
+\end{figure}
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tile_aeeb5593bb6b75aae2edfcccbc84ab378}{Tile}} ()
+\item 
+void \mbox{\hyperlink{class_tile_a96ce55d5fcb4b12880531af2138ba6b2}{init}} ()
+\item 
+void \mbox{\hyperlink{class_tile_a8d009abca71750d7de775edea5910ab4}{infect}} (sf\+::\+Vector2f mouse\+Position)
+\item 
+void \mbox{\hyperlink{class_tile_a9f5897287ec33ef87fe88a2b254d1837}{remove}} ()
+\item 
+void \mbox{\hyperlink{class_tile_a89f236ddba83484658f4f68e117a786e}{add}} ()
+\item 
+\mbox{\hyperlink{class_tile_a98634abbd93fa13d0578d7103202d03d}{$\sim$\+Tile}} ()
+\end{DoxyCompactItemize}
+\subsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_tile_a0d59a6e7e8b9c4236857470176edcf60}{update\+Positions}} ()
+\item 
+virtual void \mbox{\hyperlink{class_tile_acc7f60fb395569f318425129875336ca}{draw}} (sf\+::\+Render\+Target \&target, sf\+::\+Render\+States states) const
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa służąca zarządzaniu całą siatką kwadratów. 
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\mbox{\Hypertarget{class_tile_aeeb5593bb6b75aae2edfcccbc84ab378}\label{class_tile_aeeb5593bb6b75aae2edfcccbc84ab378}} 
+\index{Tile@{Tile}!Tile@{Tile}}
+\index{Tile@{Tile}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{Tile()}{Tile()}}
+{\footnotesize\ttfamily Tile\+::\+Tile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Domyślny konstruktor 
+\begin{DoxyCode}
+6 \{
+7 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_tile_a98634abbd93fa13d0578d7103202d03d}\label{class_tile_a98634abbd93fa13d0578d7103202d03d}} 
+\index{Tile@{Tile}!````~Tile@{$\sim$\+Tile}}
+\index{````~Tile@{$\sim$\+Tile}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{$\sim$\+Tile()}{~Tile()}}
+{\footnotesize\ttfamily Tile\+::$\sim$\+Tile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destruktor 
+\begin{DoxyCode}
+120 \{
+121 
+122 \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{class_tile_a89f236ddba83484658f4f68e117a786e}\label{class_tile_a89f236ddba83484658f4f68e117a786e}} 
+\index{Tile@{Tile}!add@{add}}
+\index{add@{add}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily void Tile\+::add (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Metoda służąca dodawaniu komórek do siatki. Dodawana jest kolumna i wiersz na samych końcach. 
+\begin{DoxyCode}
+67 \{
+68 
+69     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileSize.x == 
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_a2b24689813e0082b59df113b754778c2}{mainWindowSize}}.x || 
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.y == 
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_a2b24689813e0082b59df113b754778c2}{mainWindowSize}}.y) \textcolor{keywordflow}{return};
+70 
+71     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileQuads.empty())
+72     \{
+73         \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}} = sf::Vector2u(1,1);
+74         \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->\mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quadDimensions}} = sf::Vector2f(
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->mainWindowSize.x, 
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_a2b24689813e0082b59df113b754778c2}{mainWindowSize}}.y);
+75         \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->\mbox{\hyperlink{class_quad_settings_a05e0e32535731778852480ab4c993cce}{updateTextures}}();
+76         \mbox{\hyperlink{class_quad}{Quad}} quad;
+77         quad.\mbox{\hyperlink{class_quad_a1f3970e8f264eabe131e20af7017f940}{setPosition}}(0, 0);
+78         quad.\mbox{\hyperlink{class_quad_a35f20e65dd33bb5864f73575b04896e7}{getSprite}}()->setTextureRect(sf::IntRect(0, 0, 
+      \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->quadDimensions.x, 
+      \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->\mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quadDimensions}}.y));
+79         \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}{tileQuads}}.push\_back(quad);
+80 
+81         \textcolor{keywordflow}{return};
+82     \}
+83 
+84     \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}} = sf::Vector2u(
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileSize.x, 
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.y + 1);
+85 
+86     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->
+      \mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.x; i++)
+87     \{
+88         \mbox{\hyperlink{class_quad}{Quad}} quad;
+89         quad.\mbox{\hyperlink{class_quad_a1f3970e8f264eabe131e20af7017f940}{setPosition}}(i, \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileSize.y - 1
+      );
+90         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} index = (\mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->
+      \mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.y - 1) * (i + 1) + i;
+91         \textcolor{keywordflow}{if}(index == \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->
+      \mbox{\hyperlink{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}{tileQuads}}.size())
+92         \{
+93             \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}{tileQuads}}.push\_back(quad);
+94         \}\textcolor{keywordflow}{else}
+95         \{
+96             \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}{tileQuads}}.insert(
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileQuads.begin() + index, quad);
+97         \}
+98     \}
+99 
+100     \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}} = sf::Vector2u(
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileSize.x + 1, 
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.y);
+101 
+102     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->
+      \mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.y; j++)
+103     \{
+104         \mbox{\hyperlink{class_quad}{Quad}} quad;
+105         quad.\mbox{\hyperlink{class_quad_a1f3970e8f264eabe131e20af7017f940}{setPosition}}(\mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileSize.x - 1, j
+      );
+106         \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}{tileQuads}}.push\_back(quad);
+107     \}
+108 
+109     \textcolor{comment}{// Dodanie tego do funkcji updatePosition();}
+110     \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->\mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quadDimensions}} = sf::Vector2f(\textcolor{keywordtype}{float}
+      (\mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->mainWindowSize.x) / 
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.x, \textcolor{keywordtype}{float}(
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_a2b24689813e0082b59df113b754778c2}{mainWindowSize}}.y) / 
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.y);
+111     \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->\mbox{\hyperlink{class_quad_settings_a05e0e32535731778852480ab4c993cce}{updateTextures}}();
+112 
+113     \mbox{\hyperlink{class_tile_a0d59a6e7e8b9c4236857470176edcf60}{updatePositions}}();
+114 
+115 
+116 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_tile_acc7f60fb395569f318425129875336ca}\label{class_tile_acc7f60fb395569f318425129875336ca}} 
+\index{Tile@{Tile}!draw@{draw}}
+\index{draw@{draw}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily virtual void Tile\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{target,  }\item[{sf\+::\+Render\+States}]{states }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+Metoda, która została nadpisana z sf\+::\+Drawable
+
+
+\begin{DoxyParams}{Parametry}
+{\em target} & Render\+Target do którego będzie rysowane \\
+\hline
+{\em states} & Aktualny stan rysowania \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+54     \{
+55         states.transform *= getTransform();
+56 
+57         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} &element : \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileQuads) \{
+58             \textcolor{keywordflow}{if}(!\mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->stopLogic && !element.
+      healthy)
+59             \{
+60                 element.updateState();
+61             \}
+62             target.draw(*element.getSprite(), states);
+63         \}
+64 
+65     \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_tile_a8d009abca71750d7de775edea5910ab4}\label{class_tile_a8d009abca71750d7de775edea5910ab4}} 
+\index{Tile@{Tile}!infect@{infect}}
+\index{infect@{infect}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{infect()}{infect()}}
+{\footnotesize\ttfamily void Tile\+::infect (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{mouse\+Position }\end{DoxyParamCaption})}
+
+Metoda służąca infekowaniu komórki
+
+
+\begin{DoxyParams}{Parametry}
+{\em mouse\+Position} & Aktualna pozycja kursora na planszy. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+34 \{
+35     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} &element : \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileQuads) \{
+36         \textcolor{keywordflow}{if} (element.getSprite()->getGlobalBounds().contains(mousePosition) \textcolor{comment}{/*&& element.healthy */}) \{
+37             \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_a3cf918e098904961a658c38047f607fd}{pointOfInfection}})element.pointOfInfection = \textcolor{keyword}{true};
+38             element.setInfected();
+39         \}
+40     \}
+41 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_tile_a96ce55d5fcb4b12880531af2138ba6b2}\label{class_tile_a96ce55d5fcb4b12880531af2138ba6b2}} 
+\index{Tile@{Tile}!init@{init}}
+\index{init@{init}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Tile\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Metoda służąca inicjacji zmiennych oraz domyślnej siatki. 
+\begin{DoxyCode}
+10 \{
+11 
+12     \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}} = sf::Vector2u(
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->mainWindowSize.x/
+      \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->\mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quadDimensions}}.x,
+13         \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_a2b24689813e0082b59df113b754778c2}{mainWindowSize}}.y / 
+      \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->\mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quadDimensions}}.y);
+14     \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}{tileQuads}}.clear();
+15     \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}{tileQuads}}.shrink\_to\_fit();
+16     \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}{tileQuads}}.reserve(
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileSize.x * 
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.y);
+17 
+18     \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->\mbox{\hyperlink{class_quad_settings_a05e0e32535731778852480ab4c993cce}{updateTextures}}();
+19 
+20        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->
+      \mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.x; i++)
+21        \{
+22            \textcolor{keywordflow}{for}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->
+      \mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.y; j++)
+23            \{
+24                \mbox{\hyperlink{class_quad}{Quad}} quad;
+25                quad.\mbox{\hyperlink{class_quad_a1f3970e8f264eabe131e20af7017f940}{setPosition}}(i, j);
+26                \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}{tileQuads}}.push\_back(quad);
+27            \}
+28        \}
+29 
+30     
+31 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_tile_a9f5897287ec33ef87fe88a2b254d1837}\label{class_tile_a9f5897287ec33ef87fe88a2b254d1837}} 
+\index{Tile@{Tile}!remove@{remove}}
+\index{remove@{remove}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily void Tile\+::remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Metoda służąca usuwaniu komórek z siatki. Usuwana jest ostatnia kolumna i wiersz. 
+\begin{DoxyCode}
+44 \{
+45 
+46     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileSize.x == 0 || 
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.y == 0) \textcolor{keywordflow}{return};
+47 
+48 
+49     \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}{tileQuads}}.erase(
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileQuads.end() - 
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.y, 
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}{tileQuads}}.end());
+50     \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}{tileQuads}}.shrink\_to\_fit();
+51     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->
+      \mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.y - 1; i++)
+52     \{
+53         \textcolor{keywordtype}{int} index = \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->
+      \mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.y + i * \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->
+      \mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.y - (i + 1);
+54         \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}{tileQuads}}.erase(
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileQuads.begin() + index);
+55     \}
+56     \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}{tileQuads}}.shrink\_to\_fit();
+57     \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}} = sf::Vector2u(
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileSize.x -1, 
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.y -1);
+58 
+59     \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->\mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quadDimensions}} = sf::Vector2f(\textcolor{keywordtype}{float}
+      (\mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->mainWindowSize.x) / 
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.x, \textcolor{keywordtype}{float}(
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_a2b24689813e0082b59df113b754778c2}{mainWindowSize}}.y) / 
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.y);
+60     \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->\mbox{\hyperlink{class_quad_settings_a05e0e32535731778852480ab4c993cce}{updateTextures}}();
+61 
+62     \mbox{\hyperlink{class_tile_a0d59a6e7e8b9c4236857470176edcf60}{updatePositions}}();
+63     
+64 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_tile_a0d59a6e7e8b9c4236857470176edcf60}\label{class_tile_a0d59a6e7e8b9c4236857470176edcf60}} 
+\index{Tile@{Tile}!update\+Positions@{update\+Positions}}
+\index{update\+Positions@{update\+Positions}!Tile@{Tile}}
+\subsubsection{\texorpdfstring{update\+Positions()}{updatePositions()}}
+{\footnotesize\ttfamily void Tile\+::update\+Positions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Metoda służąca aktualizacji pozycji komórek na planszy oraz ich rozmiaru. 
+\begin{DoxyCode}
+125 \{
+126     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->
+      \mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.x; i++)
+127     \{
+128         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->
+      \mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.y; j++)
+129         \{
+130             \mbox{\hyperlink{class_quad}{Quad}} *quad = &\mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->
+      \mbox{\hyperlink{class_tile_settings_ac37d7b95a1e2266d38de0a70a907efb3}{tileQuads}}.at(j + i * \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileSize.y);
+131             quad->\mbox{\hyperlink{class_quad_a1f3970e8f264eabe131e20af7017f940}{setPosition}}(i, j);
+132             quad->\mbox{\hyperlink{class_quad_a35f20e65dd33bb5864f73575b04896e7}{getSprite}}()->setTextureRect(sf::IntRect(0, 0, 
+      \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->quadDimensions.x, 
+      \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->\mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quadDimensions}}.y));
+133             \textcolor{keywordflow}{if} (quad->\mbox{\hyperlink{class_quad_ae439ca631a9f51147b9d84a9c9df49c4}{infected}}) quad->\mbox{\hyperlink{class_quad_a67483d3d113d177c0820f586a923e65e}{updateNearbyElements}}();
+134         \}
+135     \}
+136 \}
+\end{DoxyCode}
+
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_tile_8h}{Tile.\+h}}\item 
+\mbox{\hyperlink{_tile_8cpp}{Tile.\+cpp}}\end{DoxyCompactItemize}

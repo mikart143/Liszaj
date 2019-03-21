@@ -1,0 +1,266 @@
+\hypertarget{class_quad_settings}{}\section{Dokumentacja klasy Quad\+Settings}
+\label{class_quad_settings}\index{Quad\+Settings@{Quad\+Settings}}
+
+
+{\ttfamily \#include $<$Quad\+Settings.\+h$>$}
+
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_quad_settings_a75688efe96a7a34aa87600cccfe4a40d}{update\+Resistance\+Texture\+Color}} (Im\+Vec4 resisted)
+\item 
+void \mbox{\hyperlink{class_quad_settings_aa880429606846a5d629a334859ae0f37}{update\+Infected\+Texture\+Color}} (Im\+Vec4 infected)
+\item 
+void \mbox{\hyperlink{class_quad_settings_a82d6bd77e99f58c1a24122548449c6bc}{update\+Healthy\+Texture\+Color}} (Im\+Vec4 healthy)
+\item 
+void \mbox{\hyperlink{class_quad_settings_a05e0e32535731778852480ab4c993cce}{update\+Textures}} ()
+\end{DoxyCompactItemize}
+\subsection*{Statyczne metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_quad_settings}{Quad\+Settings}} $\ast$ \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{get\+Instance}} ()
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty publiczne}
+\begin{DoxyCompactItemize}
+\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quad\+Dimensions}}
+\item 
+sf\+::\+Image \mbox{\hyperlink{class_quad_settings_a0278924ea9c2eabc3fee5b1407cd36e8}{transparent\+Image}}
+\item 
+sf\+::\+Texture \mbox{\hyperlink{class_quad_settings_a5b25effa96e1e0c522377ea31f0ec1b0}{transparent\+Texture}}
+\item 
+sf\+::\+Image \mbox{\hyperlink{class_quad_settings_ae9f7a44f5a5f20cb0f388bfac92bf776}{solid\+Image}}
+\item 
+sf\+::\+Texture \mbox{\hyperlink{class_quad_settings_a8d11211eb4f03a6eb386e246818de660}{solid\+Texture}}
+\item 
+sf\+::\+Color \mbox{\hyperlink{class_quad_settings_a52c89695cb1f151b8007e9170dd18bbf}{infected\+Color}}
+\item 
+sf\+::\+Color \mbox{\hyperlink{class_quad_settings_a9d813ff930e92de96045aa982b99b177}{resistance\+Color}}
+\item 
+sf\+::\+Color \mbox{\hyperlink{class_quad_settings_ad170bfeb3a4bc5157107cc07eba36067}{healthy\+Color}}
+\item 
+thor\+::\+Color\+Gradient \mbox{\hyperlink{class_quad_settings_a82277fca891d4180f4a5df5881943cc4}{infection\+Gradient}}
+\item 
+thor\+::\+Color\+Gradient \mbox{\hyperlink{class_quad_settings_ac6dde1c3756bc222b42b68d8cb1beba0}{resistance\+Gradient}}
+\end{DoxyCompactItemize}
+\subsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_quad_settings_a2c541d4338024c495bef33ff8b990a59}{Quad\+Settings}} ()
+\item 
+\mbox{\hyperlink{class_quad_settings_a772e3e7e95356180f9f8c6294257dc6a}{$\sim$\+Quad\+Settings}} ()
+\end{DoxyCompactItemize}
+\subsection*{Statyczne atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_quad_settings}{Quad\+Settings}} $\ast$ \mbox{\hyperlink{class_quad_settings_a5d46fe34f768222c9af872e0f52995a6}{s\+\_\+quad\+\_\+settings}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Singleton który przechowuje najważniejsze informacje dla komórki, które są współdzielone przez nie wszystkie. 
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\mbox{\Hypertarget{class_quad_settings_a2c541d4338024c495bef33ff8b990a59}\label{class_quad_settings_a2c541d4338024c495bef33ff8b990a59}} 
+\index{Quad\+Settings@{Quad\+Settings}!Quad\+Settings@{Quad\+Settings}}
+\index{Quad\+Settings@{Quad\+Settings}!Quad\+Settings@{Quad\+Settings}}
+\subsubsection{\texorpdfstring{Quad\+Settings()}{QuadSettings()}}
+{\footnotesize\ttfamily Quad\+Settings\+::\+Quad\+Settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Domyślny konstruktor. 
+\begin{DoxyCode}
+47 \{
+48     \mbox{\hyperlink{class_quad_settings_a52c89695cb1f151b8007e9170dd18bbf}{infectedColor}} = sf::Color::Red;
+49     \mbox{\hyperlink{class_quad_settings_a9d813ff930e92de96045aa982b99b177}{resistanceColor}} = sf::Color::Yellow;
+50     \mbox{\hyperlink{class_quad_settings_ad170bfeb3a4bc5157107cc07eba36067}{healthyColor}} = sf::Color(255, 170, 128, 255);
+51 
+52     \mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quadDimensions}} = sf::Vector2f(10, 10);
+53 
+54     \mbox{\hyperlink{class_quad_settings_ae9f7a44f5a5f20cb0f388bfac92bf776}{solidImage}}.create(\mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quadDimensions}}.x, \mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quadDimensions}}.y, 
+      sf::Color::White);
+55     \mbox{\hyperlink{class_quad_settings_a8d11211eb4f03a6eb386e246818de660}{solidTexture}}.loadFromImage(\mbox{\hyperlink{class_quad_settings_ae9f7a44f5a5f20cb0f388bfac92bf776}{solidImage}});
+56     
+57     \mbox{\hyperlink{class_quad_settings_a0278924ea9c2eabc3fee5b1407cd36e8}{transparentImage}}.create(\mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quadDimensions}}.x, 
+      \mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quadDimensions}}.y, sf::Color(0, 0, 0, 0));
+58     \mbox{\hyperlink{class_quad_settings_a5b25effa96e1e0c522377ea31f0ec1b0}{transparentTexture}}.loadFromImage(\mbox{\hyperlink{class_quad_settings_a0278924ea9c2eabc3fee5b1407cd36e8}{transparentImage}});
+59 
+60     \mbox{\hyperlink{class_quad_settings_a82277fca891d4180f4a5df5881943cc4}{infectionGradient}}[0.0f] = \mbox{\hyperlink{class_quad_settings_a52c89695cb1f151b8007e9170dd18bbf}{infectedColor}};
+61     \mbox{\hyperlink{class_quad_settings_a82277fca891d4180f4a5df5881943cc4}{infectionGradient}}[1.0f] = \mbox{\hyperlink{class_quad_settings_a9d813ff930e92de96045aa982b99b177}{resistanceColor}};
+62 
+63     \mbox{\hyperlink{class_quad_settings_ac6dde1c3756bc222b42b68d8cb1beba0}{resistanceGradient}}[0.0f] = \mbox{\hyperlink{class_quad_settings_a9d813ff930e92de96045aa982b99b177}{resistanceColor}};
+64     \mbox{\hyperlink{class_quad_settings_ac6dde1c3756bc222b42b68d8cb1beba0}{resistanceGradient}}[1.0f] = \mbox{\hyperlink{class_quad_settings_ad170bfeb3a4bc5157107cc07eba36067}{healthyColor}};
+65 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_quad_settings_a772e3e7e95356180f9f8c6294257dc6a}\label{class_quad_settings_a772e3e7e95356180f9f8c6294257dc6a}} 
+\index{Quad\+Settings@{Quad\+Settings}!````~Quad\+Settings@{$\sim$\+Quad\+Settings}}
+\index{````~Quad\+Settings@{$\sim$\+Quad\+Settings}!Quad\+Settings@{Quad\+Settings}}
+\subsubsection{\texorpdfstring{$\sim$\+Quad\+Settings()}{~QuadSettings()}}
+{\footnotesize\ttfamily Quad\+Settings\+::$\sim$\+Quad\+Settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Destruktor 
+\begin{DoxyCode}
+69 \{
+70     \textcolor{keyword}{delete} \mbox{\hyperlink{class_quad_settings_a5d46fe34f768222c9af872e0f52995a6}{s\_quad\_settings}};
+71 \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}\label{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}} 
+\index{Quad\+Settings@{Quad\+Settings}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Quad\+Settings@{Quad\+Settings}}
+\subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_quad_settings}{Quad\+Settings}} $\ast$ Quad\+Settings\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Metoda mająca na celu uzyskanie instancji singletonu. \begin{DoxyReturn}{Zwraca}
+Quad\+Settings$\ast$ 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+6 \{
+7     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_quad_settings_a5d46fe34f768222c9af872e0f52995a6}{s\_quad\_settings}})
+8         \mbox{\hyperlink{class_quad_settings_a5d46fe34f768222c9af872e0f52995a6}{s\_quad\_settings}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_quad_settings_a2c541d4338024c495bef33ff8b990a59}{QuadSettings}}();
+9     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_quad_settings_a5d46fe34f768222c9af872e0f52995a6}{s\_quad\_settings}};
+10 
+11 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_quad_settings_a82d6bd77e99f58c1a24122548449c6bc}\label{class_quad_settings_a82d6bd77e99f58c1a24122548449c6bc}} 
+\index{Quad\+Settings@{Quad\+Settings}!update\+Healthy\+Texture\+Color@{update\+Healthy\+Texture\+Color}}
+\index{update\+Healthy\+Texture\+Color@{update\+Healthy\+Texture\+Color}!Quad\+Settings@{Quad\+Settings}}
+\subsubsection{\texorpdfstring{update\+Healthy\+Texture\+Color()}{updateHealthyTextureColor()}}
+{\footnotesize\ttfamily void Quad\+Settings\+::update\+Healthy\+Texture\+Color (\begin{DoxyParamCaption}\item[{Im\+Vec4}]{healthy }\end{DoxyParamCaption})}
+
+Metoda mająca na celu aktualizacje koloru zdrowej komórki oraz gradientów. 
+\begin{DoxyCode}
+30 \{
+31     \mbox{\hyperlink{class_quad_settings_ad170bfeb3a4bc5157107cc07eba36067}{healthyColor}} = sf::Color(255 * healthy.x, 255 * healthy.y, 255 * healthy.z, 255 * healthy.w
+      );
+32     \mbox{\hyperlink{class_quad_settings_ac6dde1c3756bc222b42b68d8cb1beba0}{resistanceGradient}}[0.0f] = \mbox{\hyperlink{class_quad_settings_a9d813ff930e92de96045aa982b99b177}{resistanceColor}};
+33     \mbox{\hyperlink{class_quad_settings_ac6dde1c3756bc222b42b68d8cb1beba0}{resistanceGradient}}[1.0f] = \mbox{\hyperlink{class_quad_settings_ad170bfeb3a4bc5157107cc07eba36067}{healthyColor}};
+34 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_quad_settings_aa880429606846a5d629a334859ae0f37}\label{class_quad_settings_aa880429606846a5d629a334859ae0f37}} 
+\index{Quad\+Settings@{Quad\+Settings}!update\+Infected\+Texture\+Color@{update\+Infected\+Texture\+Color}}
+\index{update\+Infected\+Texture\+Color@{update\+Infected\+Texture\+Color}!Quad\+Settings@{Quad\+Settings}}
+\subsubsection{\texorpdfstring{update\+Infected\+Texture\+Color()}{updateInfectedTextureColor()}}
+{\footnotesize\ttfamily void Quad\+Settings\+::update\+Infected\+Texture\+Color (\begin{DoxyParamCaption}\item[{Im\+Vec4}]{infected }\end{DoxyParamCaption})}
+
+Metoda mająca na celu aktualizacje koloru zarażenia oraz gradientów. 
+\begin{DoxyCode}
+22 \{
+23     \mbox{\hyperlink{class_quad_settings_a52c89695cb1f151b8007e9170dd18bbf}{infectedColor}} = sf::Color(255*infected.x, 255 * infected.y, 255 * infected.z, 255 * 
+      infected.w);
+24     \mbox{\hyperlink{class_quad_settings_a82277fca891d4180f4a5df5881943cc4}{infectionGradient}}[0.0f] = \mbox{\hyperlink{class_quad_settings_a52c89695cb1f151b8007e9170dd18bbf}{infectedColor}};
+25     \mbox{\hyperlink{class_quad_settings_a82277fca891d4180f4a5df5881943cc4}{infectionGradient}}[1.0f] = \mbox{\hyperlink{class_quad_settings_a9d813ff930e92de96045aa982b99b177}{resistanceColor}};
+26 
+27 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_quad_settings_a75688efe96a7a34aa87600cccfe4a40d}\label{class_quad_settings_a75688efe96a7a34aa87600cccfe4a40d}} 
+\index{Quad\+Settings@{Quad\+Settings}!update\+Resistance\+Texture\+Color@{update\+Resistance\+Texture\+Color}}
+\index{update\+Resistance\+Texture\+Color@{update\+Resistance\+Texture\+Color}!Quad\+Settings@{Quad\+Settings}}
+\subsubsection{\texorpdfstring{update\+Resistance\+Texture\+Color()}{updateResistanceTextureColor()}}
+{\footnotesize\ttfamily void Quad\+Settings\+::update\+Resistance\+Texture\+Color (\begin{DoxyParamCaption}\item[{Im\+Vec4}]{resisted }\end{DoxyParamCaption})}
+
+Metoda mająca na celu aktualizacje koloru odporności oraz gradientów. 
+\begin{DoxyCode}
+14 \{
+15     \mbox{\hyperlink{class_quad_settings_a9d813ff930e92de96045aa982b99b177}{resistanceColor}} = sf::Color(255 * resisted.x, 255 * resisted.y, 255 * resisted.z, 255 * 
+      resisted.w);
+16     \mbox{\hyperlink{class_quad_settings_ac6dde1c3756bc222b42b68d8cb1beba0}{resistanceGradient}}[0.0f] = \mbox{\hyperlink{class_quad_settings_a9d813ff930e92de96045aa982b99b177}{resistanceColor}};
+17     \mbox{\hyperlink{class_quad_settings_ac6dde1c3756bc222b42b68d8cb1beba0}{resistanceGradient}}[1.0f] = \mbox{\hyperlink{class_quad_settings_ad170bfeb3a4bc5157107cc07eba36067}{healthyColor}};
+18 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_quad_settings_a05e0e32535731778852480ab4c993cce}\label{class_quad_settings_a05e0e32535731778852480ab4c993cce}} 
+\index{Quad\+Settings@{Quad\+Settings}!update\+Textures@{update\+Textures}}
+\index{update\+Textures@{update\+Textures}!Quad\+Settings@{Quad\+Settings}}
+\subsubsection{\texorpdfstring{update\+Textures()}{updateTextures()}}
+{\footnotesize\ttfamily void Quad\+Settings\+::update\+Textures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Metoda mająca na celu aktualizacje wymiarów tekstur i obrazków, czyli aktualizacji wielkosci komórki na planszy. 
+\begin{DoxyCode}
+37 \{
+38     \mbox{\hyperlink{class_quad_settings_a0278924ea9c2eabc3fee5b1407cd36e8}{transparentImage}}.create(\mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quadDimensions}}.x, 
+      \mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quadDimensions}}.y, sf::Color(0, 0, 0, 0));
+39     \mbox{\hyperlink{class_quad_settings_a5b25effa96e1e0c522377ea31f0ec1b0}{transparentTexture}}.loadFromImage(\mbox{\hyperlink{class_quad_settings_a0278924ea9c2eabc3fee5b1407cd36e8}{transparentImage}});
+40 
+41     \mbox{\hyperlink{class_quad_settings_ae9f7a44f5a5f20cb0f388bfac92bf776}{solidImage}}.create(\mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quadDimensions}}.x, \mbox{\hyperlink{class_quad_settings_abb4a967873d7a93098ef168b894280d6}{quadDimensions}}.y, 
+      sf::Color::White);
+42     \mbox{\hyperlink{class_quad_settings_a8d11211eb4f03a6eb386e246818de660}{solidTexture}}.loadFromImage(\mbox{\hyperlink{class_quad_settings_ae9f7a44f5a5f20cb0f388bfac92bf776}{solidImage}});
+43 
+44 \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\mbox{\Hypertarget{class_quad_settings_ad170bfeb3a4bc5157107cc07eba36067}\label{class_quad_settings_ad170bfeb3a4bc5157107cc07eba36067}} 
+\index{Quad\+Settings@{Quad\+Settings}!healthy\+Color@{healthy\+Color}}
+\index{healthy\+Color@{healthy\+Color}!Quad\+Settings@{Quad\+Settings}}
+\subsubsection{\texorpdfstring{healthy\+Color}{healthyColor}}
+{\footnotesize\ttfamily sf\+::\+Color Quad\+Settings\+::healthy\+Color}
+
+Zmienna przechowująca kolor dla zdrowej komórki. \mbox{\Hypertarget{class_quad_settings_a52c89695cb1f151b8007e9170dd18bbf}\label{class_quad_settings_a52c89695cb1f151b8007e9170dd18bbf}} 
+\index{Quad\+Settings@{Quad\+Settings}!infected\+Color@{infected\+Color}}
+\index{infected\+Color@{infected\+Color}!Quad\+Settings@{Quad\+Settings}}
+\subsubsection{\texorpdfstring{infected\+Color}{infectedColor}}
+{\footnotesize\ttfamily sf\+::\+Color Quad\+Settings\+::infected\+Color}
+
+Zmienna przechowująca kolor dla zarażonej komórki. \mbox{\Hypertarget{class_quad_settings_a82277fca891d4180f4a5df5881943cc4}\label{class_quad_settings_a82277fca891d4180f4a5df5881943cc4}} 
+\index{Quad\+Settings@{Quad\+Settings}!infection\+Gradient@{infection\+Gradient}}
+\index{infection\+Gradient@{infection\+Gradient}!Quad\+Settings@{Quad\+Settings}}
+\subsubsection{\texorpdfstring{infection\+Gradient}{infectionGradient}}
+{\footnotesize\ttfamily thor\+::\+Color\+Gradient Quad\+Settings\+::infection\+Gradient}
+
+Zmienna przechowująca gradient dla zarażonej komórki. \mbox{\Hypertarget{class_quad_settings_abb4a967873d7a93098ef168b894280d6}\label{class_quad_settings_abb4a967873d7a93098ef168b894280d6}} 
+\index{Quad\+Settings@{Quad\+Settings}!quad\+Dimensions@{quad\+Dimensions}}
+\index{quad\+Dimensions@{quad\+Dimensions}!Quad\+Settings@{Quad\+Settings}}
+\subsubsection{\texorpdfstring{quad\+Dimensions}{quadDimensions}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Quad\+Settings\+::quad\+Dimensions}
+
+Zmienna przechowująca wymiary komórki. \mbox{\Hypertarget{class_quad_settings_a9d813ff930e92de96045aa982b99b177}\label{class_quad_settings_a9d813ff930e92de96045aa982b99b177}} 
+\index{Quad\+Settings@{Quad\+Settings}!resistance\+Color@{resistance\+Color}}
+\index{resistance\+Color@{resistance\+Color}!Quad\+Settings@{Quad\+Settings}}
+\subsubsection{\texorpdfstring{resistance\+Color}{resistanceColor}}
+{\footnotesize\ttfamily sf\+::\+Color Quad\+Settings\+::resistance\+Color}
+
+Zmienna przechowująca kolor dla odpornej komórki. \mbox{\Hypertarget{class_quad_settings_ac6dde1c3756bc222b42b68d8cb1beba0}\label{class_quad_settings_ac6dde1c3756bc222b42b68d8cb1beba0}} 
+\index{Quad\+Settings@{Quad\+Settings}!resistance\+Gradient@{resistance\+Gradient}}
+\index{resistance\+Gradient@{resistance\+Gradient}!Quad\+Settings@{Quad\+Settings}}
+\subsubsection{\texorpdfstring{resistance\+Gradient}{resistanceGradient}}
+{\footnotesize\ttfamily thor\+::\+Color\+Gradient Quad\+Settings\+::resistance\+Gradient}
+
+Zmienna przechwoująca gradient dla odpornej komórki. \mbox{\Hypertarget{class_quad_settings_a5d46fe34f768222c9af872e0f52995a6}\label{class_quad_settings_a5d46fe34f768222c9af872e0f52995a6}} 
+\index{Quad\+Settings@{Quad\+Settings}!s\+\_\+quad\+\_\+settings@{s\+\_\+quad\+\_\+settings}}
+\index{s\+\_\+quad\+\_\+settings@{s\+\_\+quad\+\_\+settings}!Quad\+Settings@{Quad\+Settings}}
+\subsubsection{\texorpdfstring{s\+\_\+quad\+\_\+settings}{s\_quad\_settings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_quad_settings}{Quad\+Settings}} $\ast$ Quad\+Settings\+::s\+\_\+quad\+\_\+settings = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Zmienna statyczna która posiada jedyną instancje klasy \mbox{\hyperlink{class_quad_settings}{Quad\+Settings}}. Pozyskiwana jest przez funkcję\+: static Quad\+Settings$\ast$ \mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{Quad\+Settings\+::get\+Instance()}}; \mbox{\Hypertarget{class_quad_settings_ae9f7a44f5a5f20cb0f388bfac92bf776}\label{class_quad_settings_ae9f7a44f5a5f20cb0f388bfac92bf776}} 
+\index{Quad\+Settings@{Quad\+Settings}!solid\+Image@{solid\+Image}}
+\index{solid\+Image@{solid\+Image}!Quad\+Settings@{Quad\+Settings}}
+\subsubsection{\texorpdfstring{solid\+Image}{solidImage}}
+{\footnotesize\ttfamily sf\+::\+Image Quad\+Settings\+::solid\+Image}
+
+Zmienna przechowująca biały obrazek. \mbox{\Hypertarget{class_quad_settings_a8d11211eb4f03a6eb386e246818de660}\label{class_quad_settings_a8d11211eb4f03a6eb386e246818de660}} 
+\index{Quad\+Settings@{Quad\+Settings}!solid\+Texture@{solid\+Texture}}
+\index{solid\+Texture@{solid\+Texture}!Quad\+Settings@{Quad\+Settings}}
+\subsubsection{\texorpdfstring{solid\+Texture}{solidTexture}}
+{\footnotesize\ttfamily sf\+::\+Texture Quad\+Settings\+::solid\+Texture}
+
+Zmienna przechowująca białą teksturę. \mbox{\Hypertarget{class_quad_settings_a0278924ea9c2eabc3fee5b1407cd36e8}\label{class_quad_settings_a0278924ea9c2eabc3fee5b1407cd36e8}} 
+\index{Quad\+Settings@{Quad\+Settings}!transparent\+Image@{transparent\+Image}}
+\index{transparent\+Image@{transparent\+Image}!Quad\+Settings@{Quad\+Settings}}
+\subsubsection{\texorpdfstring{transparent\+Image}{transparentImage}}
+{\footnotesize\ttfamily sf\+::\+Image Quad\+Settings\+::transparent\+Image}
+
+Zmienna przechowująca przeźroczysty obraz. \mbox{\Hypertarget{class_quad_settings_a5b25effa96e1e0c522377ea31f0ec1b0}\label{class_quad_settings_a5b25effa96e1e0c522377ea31f0ec1b0}} 
+\index{Quad\+Settings@{Quad\+Settings}!transparent\+Texture@{transparent\+Texture}}
+\index{transparent\+Texture@{transparent\+Texture}!Quad\+Settings@{Quad\+Settings}}
+\subsubsection{\texorpdfstring{transparent\+Texture}{transparentTexture}}
+{\footnotesize\ttfamily sf\+::\+Texture Quad\+Settings\+::transparent\+Texture}
+
+Zmienna przechowująca przeżroczystą teksturę. 
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_quad_settings_8h}{Quad\+Settings.\+h}}\item 
+\mbox{\hyperlink{_quad_settings_8cpp}{Quad\+Settings.\+cpp}}\end{DoxyCompactItemize}

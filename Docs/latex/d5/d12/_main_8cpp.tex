@@ -1,0 +1,88 @@
+\hypertarget{_main_8cpp}{}\section{Dokumentacja pliku Main.\+cpp}
+\label{_main_8cpp}\index{Main.\+cpp@{Main.\+cpp}}
+{\ttfamily \#include $<$S\+F\+M\+L/\+Graphics.\+hpp$>$}\newline
+{\ttfamily \#include $<$imgui.\+h$>$}\newline
+{\ttfamily \#include $<$sfml-\/imgui/sfml-\/imgui/imgui-\/\+S\+F\+M\+L.\+hpp$>$}\newline
+{\ttfamily \#include $<$sfml-\/imgui/sfml-\/imgui/imconfig-\/\+S\+F\+M\+L.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}Tile\+Settings.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Simulation\+Settings.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Quad\+Settings.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Tile.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Options.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Control\+Panel.\+h\char`\"{}}\newline
+\subsection*{Funkcje}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Dokumentacja funkcji}
+\mbox{\Hypertarget{_main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{_main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{Main.\+cpp@{Main.\+cpp}!main@{main}}
+\index{main@{main}!Main.\+cpp@{Main.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Funkcj główna main. Zawarte jest w niej główna pętla aplikacji.
+
+Na początku tworzone jest okno główne. Ilość klatek blokowana jest na odświeżanie ekranu.
+
+Następnie deklarowane są najważniejsze zmienne. Następnie inicjowane jest okno Panelu Sterowania. Następnie inicjowane jest siatka wraz z Panelem Sterowania.
+
+Na samym końcu znajduje się główna pętla w której jest pętla odpowiadająca za przechwytywanie zdarzeń (np. kliknięcie myszką). Pod koniec pętli rysowane są wszystkie elementy. 
+\begin{DoxyCode}
+25 \{
+26     sf::RenderWindow mainWindow(sf::VideoMode(800,800), \textcolor{stringliteral}{"Liszaj"}, sf::Style::Close);
+27     mainWindow.setVerticalSyncEnabled(\textcolor{keyword}{true});
+28     sf::Event mainWindowEvent;
+29     sf::Clock deltaClockImGui;
+30     sf::Clock deltaClockFPS;
+31 
+32 
+33 
+34     \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_a2b24689813e0082b59df113b754778c2}{mainWindowSize}} = mainWindow.getSize
+      ();
+35 
+36     ImGui::SFML::Init(mainWindow);
+37 
+38     \mbox{\hyperlink{class_tile}{Tile}} tile;
+39     tile.\mbox{\hyperlink{class_tile_a96ce55d5fcb4b12880531af2138ba6b2}{init}}();
+40 
+41     \mbox{\hyperlink{class_control_panel}{ControlPanel}} controlPanel;
+42     controlPanel.\mbox{\hyperlink{class_control_panel_a76244d427bb5a852b55c1d0e79e363de}{setTile}}(&tile);
+43 
+44 
+45 
+46     \textcolor{keywordflow}{while}(mainWindow.isOpen())
+47     \{
+48 
+49         \textcolor{keywordflow}{while}(mainWindow.pollEvent(mainWindowEvent))
+50         \{
+51             ImGui::SFML::ProcessEvent(mainWindowEvent);
+52             \textcolor{keywordflow}{if} (mainWindowEvent.type == sf::Event::Closed) mainWindow.close();
+53             \textcolor{keywordflow}{if}(mainWindowEvent.type == sf::Event::MouseButtonPressed && mainWindowEvent.mouseButton.button 
+      == sf::Mouse::Button::Left &&
+54                 !\mbox{\hyperlink{class_utility}{Utility}}().clickedInWindow(controlPanel.\mbox{\hyperlink{class_control_panel_ac270884ed654aa0c068d551b4653e39c}{windowSize}}, controlPanel.
+      \mbox{\hyperlink{class_control_panel_afef4fad7217719a2dc9df005a40efda0}{windowPosition}}, sf::Vector2u(mainWindowEvent.mouseButton.x, mainWindowEvent.mouseButton.y)) )
+55                 tile.\mbox{\hyperlink{class_tile_a8d009abca71750d7de775edea5910ab4}{infect}}(sf::Vector2f(mainWindowEvent.mouseButton.x, mainWindowEvent.mouseButton.y
+      ));
+56             
+57         \}
+58         ImGui::SFML::Update(mainWindow, deltaClockImGui.restart());
+59 
+60         mainWindow.clear(\mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->healthyColor);
+61         mainWindow.draw(tile);
+62         controlPanel.\mbox{\hyperlink{class_control_panel_a0dc73223e82ee588c1ac61d4f9c3082e}{draw}}();
+63 
+64         ImGui::SFML::Render(mainWindow);
+65 
+66         \mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->
+      \mbox{\hyperlink{class_simulation_settings_a12861fbda2986c211cdeb3a59e38040b}{currentFPS}} = 1 / deltaClockFPS.restart().asSeconds();
+67 
+68         mainWindow.display();
+69     \}
+70     ImGui::SFML::Shutdown();
+71     \textcolor{keywordflow}{return} 0;
+72 \}
+\end{DoxyCode}

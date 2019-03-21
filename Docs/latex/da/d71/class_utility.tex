@@ -1,0 +1,221 @@
+\hypertarget{class_utility}{}\section{Dokumentacja klasy Utility}
+\label{class_utility}\index{Utility@{Utility}}
+
+
+{\ttfamily \#include $<$Utility.\+h$>$}
+
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_utility_ac7af3e1642ac8d53ef180180a08fbd00}{Utility}} ()
+\item 
+\mbox{\hyperlink{class_utility_aecfe4b31e39b00555158a2d8288b874a}{$\sim$\+Utility}} ()
+\item 
+bool \mbox{\hyperlink{class_utility_a1737e13071619724884c55559c34d727}{yes\+Or\+No}} (float probability)
+\item 
+void \mbox{\hyperlink{class_utility_ae89bf9504ce0848783234853483da262}{generate\+Nearby\+Elements}} (std\+::vector$<$ \mbox{\hyperlink{class_quad}{Quad}} $>$ $\ast$tile\+Quads, std\+::vector$<$ \mbox{\hyperlink{class_quad}{Quad}} $\ast$$>$ $\ast$nearby\+Quads, sf\+::\+Vector2u tile\+Size, sf\+::\+Vector2u position)
+\item 
+bool \mbox{\hyperlink{class_utility_a535e980c2716b8118deb78bef51079da}{clicked\+In\+Window}} (sf\+::\+Vector2f window\+Size, sf\+::\+Vector2f window\+Position, sf\+::\+Vector2u mouse\+Position)
+\item 
+void \mbox{\hyperlink{class_utility_a8aafe3b77344b4d230c431cbd64b09dc}{all\+Divisors}} (std\+::vector$<$ std\+::string $>$ $\ast$v\+\_\+factors)
+\end{DoxyCompactItemize}
+\subsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_utility_a65721c1ad255c50823139ad357212a13}{exist\+Quad}} (sf\+::\+Vector2u point, sf\+::\+Vector2u tile\+Size)
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa posiadająca podręczne metody dla symulacji. 
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\mbox{\Hypertarget{class_utility_ac7af3e1642ac8d53ef180180a08fbd00}\label{class_utility_ac7af3e1642ac8d53ef180180a08fbd00}} 
+\index{Utility@{Utility}!Utility@{Utility}}
+\index{Utility@{Utility}!Utility@{Utility}}
+\subsubsection{\texorpdfstring{Utility()}{Utility()}}
+{\footnotesize\ttfamily Utility\+::\+Utility (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Domyślny konstruktor. 
+\begin{DoxyCode}
+7 \{
+8 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_utility_aecfe4b31e39b00555158a2d8288b874a}\label{class_utility_aecfe4b31e39b00555158a2d8288b874a}} 
+\index{Utility@{Utility}!````~Utility@{$\sim$\+Utility}}
+\index{````~Utility@{$\sim$\+Utility}!Utility@{Utility}}
+\subsubsection{\texorpdfstring{$\sim$\+Utility()}{~Utility()}}
+{\footnotesize\ttfamily Utility\+::$\sim$\+Utility (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destruktor. 
+\begin{DoxyCode}
+12 \{
+13 \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{class_utility_a8aafe3b77344b4d230c431cbd64b09dc}\label{class_utility_a8aafe3b77344b4d230c431cbd64b09dc}} 
+\index{Utility@{Utility}!all\+Divisors@{all\+Divisors}}
+\index{all\+Divisors@{all\+Divisors}!Utility@{Utility}}
+\subsubsection{\texorpdfstring{all\+Divisors()}{allDivisors()}}
+{\footnotesize\ttfamily void Utility\+::all\+Divisors (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ $\ast$}]{v\+\_\+factors }\end{DoxyParamCaption})}
+
+Metoda oblicza wszystkie wspólne dzielniki szerokości i długośći głównego okna. 
+\begin{DoxyParams}{Parametry}
+{\em $\ast$v\+\_\+factors} & wskaźnik do wektora stringów \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+59 \{
+60     \textcolor{keywordtype}{int} n, m;
+61 
+62 
+63     v\_factors->clear();
+64     v\_factors->shrink\_to\_fit();
+65 
+66 
+67     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->mainWindowSize.x > 
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_a2b24689813e0082b59df113b754778c2}{mainWindowSize}}.y )
+68     \{
+69         m = \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_a2b24689813e0082b59df113b754778c2}{mainWindowSize}}.x;
+70         n = \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_a2b24689813e0082b59df113b754778c2}{mainWindowSize}}.y;
+71     \}\textcolor{keywordflow}{else}
+72     \{
+73         n = \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_a2b24689813e0082b59df113b754778c2}{mainWindowSize}}.x;
+74         m = \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_a2b24689813e0082b59df113b754778c2}{mainWindowSize}}.y;
+75     \}
+76 
+77 
+78     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i <= n; i++)
+79     \{
+80         \textcolor{keywordflow}{if} (n%i == 0 && m%i == 0)
+81         \{
+82             v\_factors->push\_back(std::to\_string(n/i));
+83         \}
+84     \}
+85 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_utility_a535e980c2716b8118deb78bef51079da}\label{class_utility_a535e980c2716b8118deb78bef51079da}} 
+\index{Utility@{Utility}!clicked\+In\+Window@{clicked\+In\+Window}}
+\index{clicked\+In\+Window@{clicked\+In\+Window}!Utility@{Utility}}
+\subsubsection{\texorpdfstring{clicked\+In\+Window()}{clickedInWindow()}}
+{\footnotesize\ttfamily bool Utility\+::clicked\+In\+Window (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{window\+Size,  }\item[{sf\+::\+Vector2f}]{window\+Position,  }\item[{sf\+::\+Vector2u}]{mouse\+Position }\end{DoxyParamCaption})}
+
+Metoda zwracająca bool. Sprawdza czy kliknięcie zostało zarejestrowane np. w oknie Panelu Sterowania. 
+\begin{DoxyParams}{Parametry}
+{\em window\+Size} & Rozmiar okna \\
+\hline
+{\em window\+Position} & Pozycja okna na ekranie. \\
+\hline
+{\em mouse\+Position} & Pozycja kursora na ekranie. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+bool 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+52 \{
+53     \textcolor{keywordflow}{if} (mousePosition.x >= windowPosition.x && mousePosition.x <= windowPosition.x + windowSize.x && 
+      mousePosition.y >= windowPosition.y && mousePosition.y <= windowPosition.y + windowSize.y) \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+54     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+55 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_utility_a65721c1ad255c50823139ad357212a13}\label{class_utility_a65721c1ad255c50823139ad357212a13}} 
+\index{Utility@{Utility}!exist\+Quad@{exist\+Quad}}
+\index{exist\+Quad@{exist\+Quad}!Utility@{Utility}}
+\subsubsection{\texorpdfstring{exist\+Quad()}{existQuad()}}
+{\footnotesize\ttfamily bool Utility\+::exist\+Quad (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2u}]{point,  }\item[{sf\+::\+Vector2u}]{tile\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Metoda zwracająca bool, sprawdza czy dana komórka na danej pozycji istnieje. 
+\begin{DoxyParams}{Parametry}
+{\em point} & Miejsce, w którym poszukiwana jest komórka. \\
+\hline
+{\em tile\+Size} & Rozmiar siatki komórek. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+88 \{
+89 
+90     \textcolor{keywordflow}{if} (point.x >= 0 && point.x < tileSize.x && point.y >= 0 && point.y < tileSize.y && (point.y + point.x*
+      tileSize.x) < tileSize.x*tileSize.y) \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+91     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+92 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_utility_ae89bf9504ce0848783234853483da262}\label{class_utility_ae89bf9504ce0848783234853483da262}} 
+\index{Utility@{Utility}!generate\+Nearby\+Elements@{generate\+Nearby\+Elements}}
+\index{generate\+Nearby\+Elements@{generate\+Nearby\+Elements}!Utility@{Utility}}
+\subsubsection{\texorpdfstring{generate\+Nearby\+Elements()}{generateNearbyElements()}}
+{\footnotesize\ttfamily void Utility\+::generate\+Nearby\+Elements (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_quad}{Quad}} $>$ $\ast$}]{tile\+Quads,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_quad}{Quad}} $\ast$$>$ $\ast$}]{nearby\+Quads,  }\item[{sf\+::\+Vector2u}]{tile\+Size,  }\item[{sf\+::\+Vector2u}]{position }\end{DoxyParamCaption})}
+
+Funkcja służąca generowaniu sąsiednich elementów komórki. 
+\begin{DoxyParams}{Parametry}
+{\em $\ast$tile\+Quads} & wskaźnik do wektora komórek. \\
+\hline
+{\em $\ast$nearby\+Quads} & wskaźnik do wektora wskaźników sąsiednich komórek. \\
+\hline
+{\em tile\+Size} & Rozmiar siatki komórek. \\
+\hline
+{\em position} & Pozycja komórki na siatce. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+22 \{
+23 
+24     \textcolor{comment}{//Left top}
+25     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_utility_a65721c1ad255c50823139ad357212a13}{existQuad}}(sf::Vector2u(position.x - 1, position.y - 1), tileSize))
+26         nearbyQuads->push\_back(&tileQuads->at((position.y - 1) + ((position.x - 1)*tileSize.y)));
+27     \textcolor{comment}{//Left}
+28     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_utility_a65721c1ad255c50823139ad357212a13}{existQuad}}(sf::Vector2u(position.x - 1, position.y), tileSize))
+29         nearbyQuads->push\_back(&tileQuads->at((position.y) + ((position.x - 1)*tileSize.y)));
+30     \textcolor{comment}{//Left bottom}
+31     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_utility_a65721c1ad255c50823139ad357212a13}{existQuad}}(sf::Vector2u(position.x - 1, position.y + 1), tileSize))
+32         nearbyQuads->push\_back(&tileQuads->at((position.y + 1) + ((position.x - 1)*tileSize.y)));
+33     \textcolor{comment}{//Top}
+34     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_utility_a65721c1ad255c50823139ad357212a13}{existQuad}}(sf::Vector2u(position.x, position.y - 1), tileSize))
+35         nearbyQuads->push\_back(&tileQuads->at((position.y - 1) + ((position.x)*tileSize.y)));
+36     \textcolor{comment}{//Bottom}
+37     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_utility_a65721c1ad255c50823139ad357212a13}{existQuad}}(sf::Vector2u(position.x, position.y + 1), tileSize))
+38         nearbyQuads->push\_back(&tileQuads->at((position.y + 1) + ((position.x)*tileSize.y)));
+39     \textcolor{comment}{//Right top}
+40     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_utility_a65721c1ad255c50823139ad357212a13}{existQuad}}(sf::Vector2u(position.x + 1, position.y - 1), tileSize))
+41         nearbyQuads->push\_back(&tileQuads->at((position.y - 1) + ((position.x + 1)*tileSize.y)));
+42     \textcolor{comment}{//Right}
+43     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_utility_a65721c1ad255c50823139ad357212a13}{existQuad}}(sf::Vector2u(position.x + 1, position.y), tileSize))
+44         nearbyQuads->push\_back(&tileQuads->at((position.y) + ((position.x + 1)*tileSize.y)));
+45     \textcolor{comment}{//Right bottom}
+46     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_utility_a65721c1ad255c50823139ad357212a13}{existQuad}}(sf::Vector2u(position.x + 1, position.y + 1), tileSize))
+47         nearbyQuads->push\_back(&tileQuads->at((position.y + 1) + ((position.x + 1)*tileSize.y)));
+48 
+49 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_utility_a1737e13071619724884c55559c34d727}\label{class_utility_a1737e13071619724884c55559c34d727}} 
+\index{Utility@{Utility}!yes\+Or\+No@{yes\+Or\+No}}
+\index{yes\+Or\+No@{yes\+Or\+No}!Utility@{Utility}}
+\subsubsection{\texorpdfstring{yes\+Or\+No()}{yesOrNo()}}
+{\footnotesize\ttfamily bool Utility\+::yes\+Or\+No (\begin{DoxyParamCaption}\item[{float}]{probability }\end{DoxyParamCaption})}
+
+Funkcja zwracająca bool. Jako parametr jest podawane prawdopodobieństwo wystąpienia prawdy. 
+\begin{DoxyParams}{Parametry}
+{\em probability} & Prawdopodobieństwo wystąpienia prawdy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+bool 
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+16 \{
+17     \textcolor{keywordflow}{return} rand() % 100 < (probability * 100);
+18 \}
+\end{DoxyCode}
+
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_utility_8h}{Utility.\+h}}\item 
+\mbox{\hyperlink{_utility_8cpp}{Utility.\+cpp}}\end{DoxyCompactItemize}

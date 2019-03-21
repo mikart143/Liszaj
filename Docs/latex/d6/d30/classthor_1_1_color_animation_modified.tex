@@ -1,0 +1,78 @@
+\hypertarget{classthor_1_1_color_animation_modified}{}\section{Dokumentacja klasy thor\+:\+:Color\+Animation\+Modified}
+\label{classthor_1_1_color_animation_modified}\index{thor\+::\+Color\+Animation\+Modified@{thor\+::\+Color\+Animation\+Modified}}
+
+
+{\ttfamily \#include $<$Color\+Animation\+Modified.\+h$>$}
+
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classthor_1_1_color_animation_modified_acc8f32187753112ecb01c053b0462356}{Color\+Animation\+Modified}} (Color\+Gradient $\ast$gradient)
+\item 
+{\footnotesize template$<$class Animated $>$ }\\void \mbox{\hyperlink{classthor_1_1_color_animation_modified_a1e37d889370f0e3f9686b9265cac2dba}{operator()}} (Animated \&animated, float progress) const
+\end{DoxyCompactItemize}
+\subsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+thor\+::\+Color\+Gradient $\ast$ \mbox{\hyperlink{classthor_1_1_color_animation_modified_abf68739bcf2c9d31b3165a82e0e617c7}{m\+\_\+gradient}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Zmodyfikowana klasa Color\+Animation z biblioteki thor. 
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\mbox{\Hypertarget{classthor_1_1_color_animation_modified_acc8f32187753112ecb01c053b0462356}\label{classthor_1_1_color_animation_modified_acc8f32187753112ecb01c053b0462356}} 
+\index{thor\+::\+Color\+Animation\+Modified@{thor\+::\+Color\+Animation\+Modified}!Color\+Animation\+Modified@{Color\+Animation\+Modified}}
+\index{Color\+Animation\+Modified@{Color\+Animation\+Modified}!thor\+::\+Color\+Animation\+Modified@{thor\+::\+Color\+Animation\+Modified}}
+\subsubsection{\texorpdfstring{Color\+Animation\+Modified()}{ColorAnimationModified()}}
+{\footnotesize\ttfamily thor\+::\+Color\+Animation\+Modified\+::\+Color\+Animation\+Modified (\begin{DoxyParamCaption}\item[{Color\+Gradient $\ast$}]{gradient }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Konstruktor przyjmujący jako parametr wskaźnik to Color\+Gradient. Przy oznaczeniu konstruktora jako explicit, nie będzie przeprowadzana automatyczna konwersja przy pomocy tego konstruktora. 
+\begin{DoxyCode}
+6                                                                              :
+      \mbox{\hyperlink{classthor_1_1_color_animation_modified_abf68739bcf2c9d31b3165a82e0e617c7}{m\_gradient}}(gradient)
+7 \{
+8 
+9 \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{classthor_1_1_color_animation_modified_a1e37d889370f0e3f9686b9265cac2dba}\label{classthor_1_1_color_animation_modified_a1e37d889370f0e3f9686b9265cac2dba}} 
+\index{thor\+::\+Color\+Animation\+Modified@{thor\+::\+Color\+Animation\+Modified}!operator()@{operator()}}
+\index{operator()@{operator()}!thor\+::\+Color\+Animation\+Modified@{thor\+::\+Color\+Animation\+Modified}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$class Animated $>$ \\
+void thor\+::\+Color\+Animation\+Modified\+::operator() (\begin{DoxyParamCaption}\item[{Animated \&}]{animated,  }\item[{float}]{progress }\end{DoxyParamCaption}) const}
+
+Szablon z parametrem klasy
+
+Przeciążenei operatora (). Służy zmianie koloru danemu elementowi. 
+\begin{DoxyParams}{Parametry}
+{\em animated} & Parametr przekazujący adres do elementu, w którym ma być zmieniony kolor. \\
+\hline
+{\em progress} & Parametr który przyjmuje postęp w zakresie 0f do 100f. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+49     \{
+50         thor::setColor(animated, \mbox{\hyperlink{classthor_1_1_color_animation_modified_abf68739bcf2c9d31b3165a82e0e617c7}{m\_gradient}}->sampleColor(progress));
+51     \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja atrybutów składowych}
+\mbox{\Hypertarget{classthor_1_1_color_animation_modified_abf68739bcf2c9d31b3165a82e0e617c7}\label{classthor_1_1_color_animation_modified_abf68739bcf2c9d31b3165a82e0e617c7}} 
+\index{thor\+::\+Color\+Animation\+Modified@{thor\+::\+Color\+Animation\+Modified}!m\+\_\+gradient@{m\+\_\+gradient}}
+\index{m\+\_\+gradient@{m\+\_\+gradient}!thor\+::\+Color\+Animation\+Modified@{thor\+::\+Color\+Animation\+Modified}}
+\subsubsection{\texorpdfstring{m\+\_\+gradient}{m\_gradient}}
+{\footnotesize\ttfamily thor\+::\+Color\+Gradient$\ast$ thor\+::\+Color\+Animation\+Modified\+::m\+\_\+gradient\hspace{0.3cm}{\ttfamily [private]}}
+
+Zmienna prywatna, wskaźnik do Color\+Gradient. 
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_color_animation_modified_8h}{Color\+Animation\+Modified.\+h}}\item 
+\mbox{\hyperlink{_color_animation_modified_8cpp}{Color\+Animation\+Modified.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,109 @@
+\hypertarget{class_statistics}{}\section{Dokumentacja klasy Statistics}
+\label{class_statistics}\index{Statistics@{Statistics}}
+
+
+{\ttfamily \#include $<$Statistics.\+h$>$}
+
+\subsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_statistics_a60ddd90a571ed4c3ce8c0f6317a36d63}{Statistics}} ()
+\item 
+\mbox{\hyperlink{class_statistics_ab68ede75479e44d5c35b78ec1284065b}{$\sim$\+Statistics}} ()
+\item 
+void \mbox{\hyperlink{class_statistics_a5345e618eb4d5b8448a86d519d5ee33d}{draw}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Klasa, która odpowiada za kartę Statystyki w Panelu Sterowania. 
+
+\subsection{Dokumentacja konstruktora i destruktora}
+\mbox{\Hypertarget{class_statistics_a60ddd90a571ed4c3ce8c0f6317a36d63}\label{class_statistics_a60ddd90a571ed4c3ce8c0f6317a36d63}} 
+\index{Statistics@{Statistics}!Statistics@{Statistics}}
+\index{Statistics@{Statistics}!Statistics@{Statistics}}
+\subsubsection{\texorpdfstring{Statistics()}{Statistics()}}
+{\footnotesize\ttfamily Statistics\+::\+Statistics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Domyślny konstruktor. 
+\begin{DoxyCode}
+6 \{
+7 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_statistics_ab68ede75479e44d5c35b78ec1284065b}\label{class_statistics_ab68ede75479e44d5c35b78ec1284065b}} 
+\index{Statistics@{Statistics}!````~Statistics@{$\sim$\+Statistics}}
+\index{````~Statistics@{$\sim$\+Statistics}!Statistics@{Statistics}}
+\subsubsection{\texorpdfstring{$\sim$\+Statistics()}{~Statistics()}}
+{\footnotesize\ttfamily Statistics\+::$\sim$\+Statistics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destruktor. 
+\begin{DoxyCode}
+11 \{
+12 \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja funkcji składowych}
+\mbox{\Hypertarget{class_statistics_a5345e618eb4d5b8448a86d519d5ee33d}\label{class_statistics_a5345e618eb4d5b8448a86d519d5ee33d}} 
+\index{Statistics@{Statistics}!draw@{draw}}
+\index{draw@{draw}!Statistics@{Statistics}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Statistics\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Metoda która rysuje zakładkę Statystyki. 
+\begin{DoxyCode}
+15 \{
+16 
+17     ImGui::Text(\textcolor{stringliteral}{"Rozmiar okna symulacji:"});
+18     ImGui::SameLine();
+19     ImGui::Text(std::to\_string(\mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->mainWindowSize.x).
+      c\_str());
+20     ImGui::SameLine();
+21     ImGui::Text(\textcolor{stringliteral}{"px"});
+22     ImGui::SameLine();
+23     ImGui::Text(\textcolor{stringliteral}{"x"});
+24     ImGui::SameLine();
+25     ImGui::Text(std::to\_string(\mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->mainWindowSize.y).
+      c\_str());
+26     ImGui::SameLine();
+27     ImGui::Text(\textcolor{stringliteral}{"px"});
+28 
+29     ImGui::Text(\textcolor{stringliteral}{"Ilosc kwadratow: "});
+30     ImGui::SameLine();
+31     ImGui::Text(std::to\_string(\mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileSize.x * 
+      \mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->\mbox{\hyperlink{class_tile_settings_ae4be54be3619d21d536ce13b7354f165}{tileSize}}.y).c\_str());
+32 
+33     ImGui::Text(\textcolor{stringliteral}{"Rozmiar kwadratu: "});
+34     ImGui::SameLine();
+35     ImGui::Text(std::to\_string(\mbox{\hyperlink{class_quad_settings_a20d7cfd0c56c11adcdf75c5e3011de67}{QuadSettings::getInstance}}()->quadDimensions.x).
+      c\_str());
+36     ImGui::SameLine();
+37     ImGui::Text(\textcolor{stringliteral}{"px"});
+38 
+39 
+40     ImGui::Text(\textcolor{stringliteral}{"Rozmiar siatki:"});
+41     ImGui::SameLine();
+42     ImGui::Text(std::to\_string(\mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileSize.x).c\_str());
+43     ImGui::SameLine();
+44     ImGui::Text(\textcolor{stringliteral}{"elementow"});
+45     ImGui::SameLine();
+46     ImGui::Text(\textcolor{stringliteral}{"na"});
+47     ImGui::SameLine();
+48     ImGui::Text(std::to\_string(\mbox{\hyperlink{class_tile_settings_a003ae6e78b97855c8592b2b4c0818914}{TileSettings::getInstance}}()->tileSize.y).c\_str());
+49     ImGui::SameLine();
+50     ImGui::Text(\textcolor{stringliteral}{"elementow"});
+51 
+52     ImGui::Text(\textcolor{stringliteral}{"FPS:"});
+53     ImGui::SameLine();
+54     ImGui::Text(std::to\_string(\mbox{\hyperlink{class_simulation_settings_ab69bcd8bb611656b17d1f655d09a3004}{SimulationSettings::getInstance}}()->currentFPS
+      ).c\_str());
+55 
+56 
+57 \}
+\end{DoxyCode}
+
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_statistics_8h}{Statistics.\+h}}\item 
+\mbox{\hyperlink{_statistics_8cpp}{Statistics.\+cpp}}\end{DoxyCompactItemize}

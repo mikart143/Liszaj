@@ -1,0 +1,70 @@
+\hypertarget{namespace_im_gui}{}\section{Dokumentacja przestrzeni nazw Im\+Gui}
+\label{namespace_im_gui}\index{Im\+Gui@{Im\+Gui}}
+\subsection*{Funkcje}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespace_im_gui_a405b19deb7db39d92f42ac1329740892}{Combo}} (const char $\ast$label, int $\ast$curr\+Index, std\+::vector$<$ std\+::string $>$ \&values)
+\end{DoxyCompactItemize}
+\subsection*{Zmienne}
+\begin{DoxyCompactItemize}
+\item 
+static auto \mbox{\hyperlink{namespace_im_gui_a60811991fd9baf2b2f86bd99efd4b741}{vector\+\_\+getter}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Opis szczegółowy}
+Przestrzeń nazw biblioteki \mbox{\hyperlink{namespace_im_gui}{Im\+Gui}}, do której zostały dodane nowe funkcje. 
+
+\subsection{Dokumentacja funkcji}
+\mbox{\Hypertarget{namespace_im_gui_a405b19deb7db39d92f42ac1329740892}\label{namespace_im_gui_a405b19deb7db39d92f42ac1329740892}} 
+\index{Im\+Gui@{Im\+Gui}!Combo@{Combo}}
+\index{Combo@{Combo}!Im\+Gui@{Im\+Gui}}
+\subsubsection{\texorpdfstring{Combo()}{Combo()}}
+{\footnotesize\ttfamily bool Im\+Gui\+::\+Combo (\begin{DoxyParamCaption}\item[{const char $\ast$}]{label,  }\item[{int $\ast$}]{curr\+Index,  }\item[{std\+::vector$<$ std\+::string $>$ \&}]{values }\end{DoxyParamCaption})}
+
+Własna funkcja Combo do tworzenia combo boxa. 
+\begin{DoxyParams}{Parametry}
+{\em label} & Wyświetlana nazwa elementu \\
+\hline
+{\em curr\+Index} & wskaźnik do aktualnie wybranego elementu. \\
+\hline
+{\em values} & wektor stringów przechowujący dzielniki liczb\\
+\hline
+\end{DoxyParams}
+Wewnątrz funkcji badane jest czy wektor jest pusty i zwarcane jest false kiedy tak jest. W przeciwnym wypadku wywoływana jest funkcja o prototypie\+: I\+M\+G\+U\+I\+\_\+\+A\+PI bool Combo(const char$\ast$ label, int$\ast$ current\+\_\+item, bool($\ast$ items\+\_\+getter)(void$\ast$ data, int idx, const char$\ast$$\ast$ out\+\_\+text), void$\ast$ data, int items\+\_\+count, int popup\+\_\+max\+\_\+height\+\_\+in\+\_\+items = -\/1); 
+\begin{DoxyCode}
+40     \{
+41         \textcolor{keywordflow}{if} (values.empty()) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}
+42         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_im_gui_a405b19deb7db39d92f42ac1329740892}{Combo}}(label, currIndex, \mbox{\hyperlink{namespace_im_gui_a60811991fd9baf2b2f86bd99efd4b741}{vector\_getter}},
+43             static\_cast<void*>(&values), values.size());
+44     \}
+\end{DoxyCode}
+
+
+\subsection{Dokumentacja zmiennych}
+\mbox{\Hypertarget{namespace_im_gui_a60811991fd9baf2b2f86bd99efd4b741}\label{namespace_im_gui_a60811991fd9baf2b2f86bd99efd4b741}} 
+\index{Im\+Gui@{Im\+Gui}!vector\+\_\+getter@{vector\+\_\+getter}}
+\index{vector\+\_\+getter@{vector\+\_\+getter}!Im\+Gui@{Im\+Gui}}
+\subsubsection{\texorpdfstring{vector\+\_\+getter}{vector\_getter}}
+{\footnotesize\ttfamily auto Im\+Gui\+::vector\+\_\+getter\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Wartość początkowa\+:}
+\begin{DoxyCode}
+= [](\textcolor{keywordtype}{void}* vec, \textcolor{keywordtype}{int} idx, \textcolor{keyword}{const} \textcolor{keywordtype}{char}** out\_text)
+    \{
+        \textcolor{keyword}{auto}& vector = *\textcolor{keyword}{static\_cast<}std::vector<std::string>*\textcolor{keyword}{>}(vec);
+        \textcolor{keywordflow}{if} (idx < 0 || idx >= static\_cast<int>(vector.size())) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}
+        *out\_text = vector.at(idx).c\_str();
+        \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+    \}
+\end{DoxyCode}
+Funkcja anonimowa utworzona na wzór funkcji anonimowej z prototypu funkcji. Prototyp tej funkcji\+: I\+M\+G\+U\+I\+\_\+\+A\+PI bool Combo(const char$\ast$ label, int$\ast$ current\+\_\+item, bool($\ast$ items\+\_\+getter)(void$\ast$ data, int idx, const char$\ast$$\ast$ out\+\_\+text), void$\ast$ data, int items\+\_\+count, int popup\+\_\+max\+\_\+height\+\_\+in\+\_\+items = -\/1); 
+\begin{DoxyParams}{Parametry}
+{\em vec} & Przekazuje wskaźnik (służy jako wskażnik do dowolnego typu). \\
+\hline
+{\em idx} & Indeks elementu w wektorze. \\
+\hline
+{\em out\+\_\+text} & Wskaźnik przez który przekazwyany jest wyjściowy tekst.\\
+\hline
+\end{DoxyParams}
+Do zmiennej vector przypisywany jest wskaźnik rzutowany do wektora stringów Jeżeli index jest ujemny lub większy niż rozmiar wektora to zwracane jest false. W przeciwnym razie wartość ta przypisywana out\+\_\+text i zwracane jest true. 
